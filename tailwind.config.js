@@ -7,10 +7,21 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontSize: {
+        lg: ["48px"],
+      },
+      fontFamily: {
+        raleway: ["Raleway"],
+      },
+      fontWeight: {
+        semibold: "600",
+      },
+      colors: {
+        "default-blue": "#114B9F",
+      },
+      spacing: {
+        12: "10px",
+        22: "20px",
       },
     },
   },
