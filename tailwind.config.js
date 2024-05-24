@@ -21,6 +21,7 @@ module.exports = {
       },
       colors: {
         "default-blue": "#114B9F",
+        "light-blue": "#E9F2FF",
       },
       spacing: {
         12: "10px",
