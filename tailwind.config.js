@@ -9,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        raleway: "Raleway",
+        jakrata: "Plus Jakarta Sans",
+      },
       colors: {
         'default-blue': '#114B9F',
       },
