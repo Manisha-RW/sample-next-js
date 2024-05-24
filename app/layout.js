@@ -1,6 +1,5 @@
 import Footer from "@/components/Footer";
 import "./globals.css";
-import Faq from "@/components/Faq";
 
 export const metadata = {
   title: "Next App",
@@ -12,7 +11,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {/* <Navbar /> */}
-        <Faq/>
         {children}
         <Footer />
       </body>
