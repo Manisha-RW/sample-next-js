@@ -9,12 +9,22 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        lg: ["48px"],
+      },
       fontFamily: {
-        raleway: "Raleway",
+        raleway: ["Raleway"],
         jakrata: "Plus Jakarta Sans",
       },
+      fontWeight: {
+        semibold: "600",
+      },
       colors: {
-        'default-blue': '#114B9F',
+        "default-blue": "#114B9F",
+      },
+      spacing: {
+        12: "10px",
+        22: "20px",
       },
     },
   },
