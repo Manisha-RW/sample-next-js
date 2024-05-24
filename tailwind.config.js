@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'default-blue': '#114B9F',
+      },
     },
   },
   plugins: [],
