@@ -22,11 +22,13 @@ module.exports = {
       colors: {
         "default-blue": "#114B9F",
         "light-blue": "#E9F2FF",
+        "blue": "#0062D7",
+        "project-blue": "#114B9F",
       },
       spacing: {
         12: "10px",
         22: "20px",
-      },
+      }, 
     },
   },
   plugins: [],
