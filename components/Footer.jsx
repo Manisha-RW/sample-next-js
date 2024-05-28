@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Link from "next/link";
 
 const Footer = () => {
   const footerData = [
@@ -52,12 +53,12 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8 py-14 max-w-xs mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-full">
           <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
-            <a
+            <Link
               href="https://pagedone.io/"
               className="flex justify-center lg:justify-start"
             >
               <img src="/images/svgviewer-png-output.png"></img>
-            </a>
+            </Link>
             <div className="py-4 text-sm text-white lg:max-w-[266px] lg:max-h-[101px] text-center lg:text-left">
               <h1 className="font-raleway font-semibold text-xl">
                 Proud member of IKK Group
@@ -73,36 +74,36 @@ const Footer = () => {
             {/* Social  Icons*/}
             <div className="flex mt-4 py-8 space-x-4 justify-center lg:justify-start sm:mt-0 ">
               {/* Facebook */}
-              <a
+              <Link
                 href="/"
                 className="w-9 h-9 rounded-full flex justify-center items-center "
               >
                 <img src="/images/facebook.png"></img>
-              </a>
+              </Link>
 
               {/* Instagram */}
-              <a
+              <Link
                 href="/"
                 className="w-9 h-9 rounded-full flex justify-center items-center "
               >
                 <img src="/images/instagram.png"></img>
-              </a>
+              </Link>
 
               {/* Twitter */}
-              <a
+              <Link
                 href="/"
                 className="w-9 h-9 rounded-full flex justify-center items-center "
               >
                 <img src="/images/twitter.png"></img>
-              </a>
+              </Link>
 
               {/* Youtube */}
-              <a
+              <Link
                 href="/"
                 className="w-9 h-9 rounded-full flex justify-center items-center "
               >
                 <img src="/images/youtube.png"></img>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -121,7 +122,7 @@ const Footer = () => {
                     key={index}
                     className="mb-6 font-raleway text-gray-400 font-normal text-sm"
                   >
-                    <a href="/">{items.label}</a>
+                    <Link href="/">{items.label}</Link>
                   </li>
                 ))}
               </ul>
