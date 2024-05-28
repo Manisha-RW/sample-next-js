@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import "../app/globals.css";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
 const cardData = [
   {
@@ -53,7 +53,8 @@ const OurProjects = () => {
     slidesToScroll: 1,
   };
   return (
-    <div className="justify-center items-center flex">
+    <div className="mt-[120px]">
+      <div className="justify-center items-center flex">
       <div className="lg:max-w-[1300px] lg:max-h-[783px] bg-light-blue">
         <div className="relative  px-6 pt-8 pb-20 lg:px-8 lg:pb-28">
           <div className="relative mx-auto max-w-7xl">
@@ -73,47 +74,47 @@ const OurProjects = () => {
               <Slider {...settings}>
                 {cardData?.map((i) => (
                   <div className="flex flex-col w-[362px] pr-5 overflow-hidden">
-                    <div className="flex flex-1 flex-col justify-between bg-white p-6">
+                    <div className="flex flex-1 flex-col justify-between rounded-lg bg-white p-6">
                       <img
                         className="h-48 w-full rounded-lg"
                         src={i.image}
                         alt=""
                       ></img>
                       <div className="flex-1">
-                        <a href="#" className="mt-2 block">
+                        <Link href="#" className="mt-2 block">
                           <p className="text-xl font-semibold text-gray-900">
                             {i.heading}
                           </p>
                           <p className="mt-3 text-base text-gray-600">
                             {i.description}
                           </p>
-                        </a>
+                        </Link>
                       </div>
                       <p className="text-sm font-medium ">
-                        <a
+                        <Link
                           href="#"
                           className="hover:underline text-indigo-600 text-base"
                         >
                           Client:
-                        </a>
+                        </Link>
                         <span className="text-gray-600"> Al Dar</span>
                       </p>
                       <div className="mt-6 flex items-center">
                         <div className="flex-shrink-0">
-                          <a href="#">
+                          <Link href="#">
                             <span className="sr-only">Roel Aufderehar</span>
                             <img
                               className="h-10 w-10 rounded-full"
                               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
                               alt=""
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="ml-3">
                           <p className="text-sm font-medium text-gray-900">
-                            <a href="#" className="hover:underline">
+                            <Link href="#" className="hover:underline">
                               Roel Aufderehar
-                            </a>
+                            </Link>
                           </p>
                           <div className="flex space-x-1 text-sm text-gray-500">
                             <time datetime="2020-03-16">Mar 16, 2020</time>
@@ -130,6 +131,7 @@ const OurProjects = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
