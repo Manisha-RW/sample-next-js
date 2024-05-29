@@ -4,31 +4,37 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const clientData = [
-  {
-    image: "/images/client-1.jpg",
-    name: "Ralph Edwards",
-    position: "Senior SEO Executive",
-    description:
-      "I am absolutely delighted to share my positive experience as a client. From the moment I engaged with the company, I was met with exceptional professionalism and dedication to ensuring my satisfaction. The level of service provided was truly outstanding, and every interaction I had with the team was characterized by their unwavering commitment to excellence.",
-  },
-  {
-    image: "/images/client-1.jpg",
-    name: "Marina",
-    position: "CEO",
-    description:
-      "I am absolutely delighted to share my positive experience as a client. From the moment I engaged with the company, I was met with exceptional professionalism and dedication to ensuring my satisfaction. The level of service provided was truly outstanding, and every interaction I had with the team was characterized by their unwavering commitment to excellence.",
-  },
-  {
-    image: "/images/client-1.jpg",
-    name: "George",
-    position: "Manager",
-    description:
-      "I am absolutely delighted to share my positive experience as a client. From the moment I engaged with the company, I was met with exceptional professionalism and dedication to ensuring my satisfaction. The level of service provided was truly outstanding, and every interaction I had with the team was characterized by their unwavering commitment to excellence.",
-  },
-];
+const ourClientData = {
+  title1: "What",
+  title2: "Our Clients",
+  title3: "Say",
+  clientData: [
+    {
+      image: "/images/client-1.jpg",
+      name: "Ralph Edwards",
+      position: "Senior SEO Executive",
+      description:
+        "I am absolutely delighted to share my positive experience as a client. From the moment I engaged with the company, I was met with exceptional professionalism and dedication to ensuring my satisfaction. The level of service provided was truly outstanding, and every interaction I had with the team was characterized by their unwavering commitment to excellence.",
+    },
+    {
+      image: "/images/client-1.jpg",
+      name: "Marina",
+      position: "CEO",
+      description:
+        "I am absolutely delighted to share my positive experience as a client. From the moment I engaged with the company, I was met with exceptional professionalism and dedication to ensuring my satisfaction. The level of service provided was truly outstanding, and every interaction I had with the team was characterized by their unwavering commitment to excellence.",
+    },
+    {
+      image: "/images/client-1.jpg",
+      name: "George",
+      position: "Manager",
+      description:
+        "I am absolutely delighted to share my positive experience as a client. From the moment I engaged with the company, I was met with exceptional professionalism and dedication to ensuring my satisfaction. The level of service provided was truly outstanding, and every interaction I had with the team was characterized by their unwavering commitment to excellence.",
+    },
+  ],
+};
 
 const OurClient = () => {
+  const { title1, title2, title3, clientData } = ourClientData;
   var settings = {
     dots: true,
     infinite: true,
@@ -38,12 +44,12 @@ const OurClient = () => {
   };
 
   return (
-    <div className="mt-28 flex flex-col items-center overflow-hidden">
+    <div className="mt-28 flex flex-col items-center">
       <div className="text-gray-900 text-5xl text-lg mb-1 font-medium title-font">
-        What <span className="text-default-blue">Our Clients</span> Say
+        {title1} <span className="text-default-blue">{title2}</span> {title3}
       </div>
 
-      <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8 overflow-hidden">
+      <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8">
         <Slider {...settings}>
           {clientData.map((client, index) => (
             <div key={index} className="flex justify-center">
