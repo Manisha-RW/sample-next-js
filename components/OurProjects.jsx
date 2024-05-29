@@ -91,11 +91,11 @@ const OurProjects = () => {
           <div className="relative  px-6 pt-8 pb-20 lg:px-8 lg:pb-28">
             <div className="relative mx-auto max-w-7xl">
               <div className="text-left">
-                <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
+                <h2 className="text-gray-900 heading text-lg mb-1 title-font">
                   {title1}
                   <span className="text-default-blue"> {title2}</span>
                 </h2>
-                <p className="mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4 mb-10">
+                <p className="mt-3 w-[453px] h-[48px] text-base font-normal max-w-2xl text-gray-500 sm:mt-4 mb-10">
                   {description}
                 </p>
               </div>
@@ -113,36 +113,37 @@ const OurProjects = () => {
                         ></img>
                         <div className="flex-1">
                           <Link href="#" className="mt-2 block">
-                            <p className="text-xl font-semibold text-gray-900">
+                            <p className="text-xl font-Raleway font-semibold text-gray-900">
                               {i.heading}
                             </p>
-                            <p className="mt-3 text-base text-gray-600">
+                            <p className="mt-3 font-normal font-Raleway text-base text-gray-600">
                               {i.description}
                             </p>
                           </Link>
                         </div>
-                        <p className="text-sm font-medium ">
+                        <p className="text-sm font-semibold ">
                           <Link
                             href="#"
-                            className="hover:underline text-indigo-600 text-base"
+                            className="hover:underline text-xl text-indigo-600 font-semibold"
                           >
                             Client:
                           </Link>
                           <span className="text-gray-600"> Al Dar</span>
                         </p>
-
+                        <div className="grid grid-cols-2">
                         {i?.iconImages?.map((data, index) => (
                           <div className="mt-6 flex items-center">
                             <div className="flex-shrink-0">
                               <img src={data.iconImg}></img>
                             </div>
                             <div className="ml-3">
-                              <p className="text-sm font-medium text-gray-900">
+                              <p className="font-normal text-base text-gray-900">
                                 {data.title}
                               </p>
                             </div>
                           </div>
                         ))}
+                        </div>
                       </div>
                     </div>
                   ))}
