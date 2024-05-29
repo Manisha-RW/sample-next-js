@@ -44,25 +44,25 @@ const OurClient = () => {
   };
 
   return (
-    <div className="mt-28 flex flex-col items-center">
-      <div className="text-gray-900 text-5xl text-lg mb-1 font-medium title-font">
+    <div className="mt-28 flex flex-col items-center overflow-x-hidden">
+      <div className="text-gray-900 font-raleway font-semibold leading-[57.6px] text-5xl text-lg mb-1 title-font">
         {title1} <span className="text-default-blue">{title2}</span> {title3}
       </div>
 
-      <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8">
+      <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8 overflow-hidden">
         <Slider {...settings}>
           {clientData.map((client, index) => (
             <div key={index} className="flex justify-center">
-              <div className="w-full max-w-4xl h-auto md:h-[471px] rounded-lg p-8 text-center flex flex-col items-center">
+              <div className="w-full max-w-4xl h-auto md:h-[471px] rounded-lg p-8 text-center flex flex-col items-center box-border">
                 <img
                   className="h-24 w-24 md:h-[102px] md:w-[102px] rounded-full"
                   src={client.image}
                   alt={`Client ${client.name}`}
                 />
-                <p className="font-medium text-xl md:text-2xl font-raleway text-project-blue mt-4">
+                <p className="font-semibold text-xl md:text-2xl font-raleway text-project-blue mt-4">
                   {client.name}
                 </p>
-                <p className="text-base text-gray-600 mt-4 dark:text-white">
+                <p className="font-normal text-gray-600 mt-4 dark:text-white">
                   {client.position}
                 </p>
                 <div className="flex items-center justify-center space-x-2 mt-4">
@@ -86,7 +86,7 @@ const OurClient = () => {
                       src="/images/Inverted-comma.png"
                       alt="Inverted comma"
                     />
-                    <p className="w-full text-base text-gray-600 dark:text-white">
+                    <p className="w-full font-normal text-base text-gray-600 dark:text-white">
                       {client.description}
                     </p>
                   </div>
