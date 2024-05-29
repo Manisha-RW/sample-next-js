@@ -1,7 +1,16 @@
 import Head from "next/head";
 import React from "react";
 
+const contactData = {
+  image: "/images/contact.png",
+  title1: "Contact",
+  title2: "Us",
+  description:
+    "We’d love to speak to you and understand how we can work together to make graph analytics better.",
+};
+
 const ContactUs = () => {
+  const { image, title1, title2, description } = contactData;
   return (
     <div className="mt-[120px]">
       <section className="pb-10">
@@ -19,19 +28,16 @@ const ContactUs = () => {
           <div className="lg:max-w-[589px] lg:max-h-[589px] w-full lg:w-auto">
             <img
               className="rounded-lg w-full lg:w-[570px] h-[570px] mx-auto"
-              src="/images/contact.png"
+              src={image}
               alt="Contact Us"
             />
           </div>
           {/* Right Form */}
           <div className="lg:w-[493px] lg:h-[516px] bg-white flex flex-col md:ml-auto w-full md:pt-8 mt-8 md:mt-0">
             <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
-              Contact <span className="text-default-blue">Us</span>
+              {title1} <span className="text-default-blue">{title2}</span>
             </h2>
-            <p className="leading-relaxed mb-5 text-gray-600">
-              We’d love to speak to you and understand how we can work together
-              to make graph analytics better.
-            </p>
+            <p className="leading-relaxed mb-5 text-gray-600">{description}</p>
 
             <div className="flex mb-4 gap-5">
               <div className="relative mb-4 w-full lg:w-1/2">
