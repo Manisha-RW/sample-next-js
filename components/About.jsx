@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 
 const aboutData = [
@@ -13,7 +14,7 @@ const aboutData = [
 ];
 
 const About = () => {
-  return (
+  return (   
     <div className="mt-20 lg:mt-40 overflow-hidden">
       <div className="container mx-auto px-4">
         {aboutData?.map((data, index) => (
@@ -29,11 +30,11 @@ const About = () => {
               />
             </div>
             <div className="text w-full lg:w-[572px]">
-              <h2 className="font-raleway font-medium text-3xl md:text-4xl lg:text-5xl leading-snug text-left mb-6">
+              <h2 className="font-raleway font-semibold text-3xl md:text-4xl lg:text-5xl leading-snug text-left mb-6">
                 {data?.title1}
-                <span className="text-default-blue">{data?.title2}</span>
+                <span className="text-default-blue font-raleway"> {data?.title2}</span>
               </h2>
-              <div className="leading-6 font-raleway">
+              <div className="leading-6 font-Raleway">
                 <p className="mb-6 md:mb-12 text-sm lg:text-base">
                   {data?.description1}
                 </p>

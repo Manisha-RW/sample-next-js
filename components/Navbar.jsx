@@ -41,11 +41,11 @@ const Navbar = () => {
             </div> */}
           <div className="hidden text-white lg:flex flex-col lg:flex-row lg:space-x-4 lg:mt-0 mt-4 flex flex-col items-center text-xl">
             {links?.map((i) => (
-              <Link href={i.link} className="text-white px-4 py-2">
+              <Link href={i.link} className="text-white font-Raleway text-base px-4 py-2">
                 {i.label}
               </Link>
             ))}
-            <button className="bg-default-blue w-[148px] h-[52px] mt-4 lg:mt-0">
+            <button className="bg-default-blue font-Raleway text-base rounded w-[148px] h-[52px] mt-4 lg:mt-0">
               Contact Us
             </button>
           </div>

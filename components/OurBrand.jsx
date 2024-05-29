@@ -2,8 +2,8 @@ import React from "react";
 
 const OurBrand = () => {
   return (
-    <div className="justify-center items-center flex">
-      {" "}
+    <div className="mt-[120px]">
+      <div className="justify-center items-center flex">
       <div className="flex w-[1300px] h-[409px] bg-light-blue justify-center items-center">
         {/* Left section */}
         <div className="lg:max-w-[418px] lg:max-h-[118px]">
@@ -58,6 +58,7 @@ const OurBrand = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

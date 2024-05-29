@@ -13,8 +13,10 @@ module.exports = {
         lg: ["48px"],
       },
       fontFamily: {
-        raleway: ["Raleway"],
-        jakrata: "Plus Jakarta Sans",
+        raleway: ['Raleway', 'sans-serif'],
+        // 'Raleway': ["Raleway", 'sans-serif'],
+        'jakrata': ['Plus Jakarta Sans'],
+        'open': ["Open Sans, sans-serif"],
       },
       fontWeight: {
         semibold: "600",
@@ -28,8 +30,16 @@ module.exports = {
       spacing: {
         12: "10px",
         22: "20px",
-      }, 
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        '.heading': {
+          '@apply font-semibold leading-[57.6px] font-raleway': {},
+        },
+      }, ['responsive', 'hover']);
+    },
+  ],
 };

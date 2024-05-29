@@ -44,16 +44,16 @@ const OurClient = () => {
   };
 
   return (
-    <div className="mt-28 flex flex-col items-center overflow-x-hidden">
+    <div className="mt-28 flex flex-col items-center">
       <div className="text-gray-900 font-raleway font-semibold leading-[57.6px] text-5xl text-lg mb-1 title-font">
         {title1} <span className="text-default-blue">{title2}</span> {title3}
       </div>
 
-      <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8 overflow-hidden">
+      <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8">
         <Slider {...settings}>
           {clientData.map((client, index) => (
             <div key={index} className="flex justify-center">
-              <div className="w-full max-w-4xl h-auto md:h-[471px] rounded-lg p-8 text-center flex flex-col items-center box-border">
+              <div className="w-full max-w-4xl h-auto md:h-[471px] rounded-lg p-8 text-center flex flex-col items-center">
                 <img
                   className="h-24 w-24 md:h-[102px] md:w-[102px] rounded-full"
                   src={client.image}

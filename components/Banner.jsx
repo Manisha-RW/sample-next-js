@@ -38,10 +38,10 @@ const Banner = () => {
         </div>
 
         <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-4 lg:px-0">
-          <h1 className="lg:max-w-[689px] lg:max-h-[140px] text-[32px] lg:text-[64px] font-medium leading-tight mb-4">
+          <h1 className="lg:max-w-[689px] font-Raleway lg:max-h-[140px] text-[32px] lg:text-[64px] font-medium leading-tight mb-4">
             {heading}
           </h1>
-          <p className="text-base lg:max-w-[613px] lg:max-h-[48px] py-5 leading-6 mb-8">
+          <p className="text-base font-Raleway lg:max-w-[613px] lg:max-h-[48px] py-5 leading-6 mb-8">
             {subHeading}
           </p>
           <Button />

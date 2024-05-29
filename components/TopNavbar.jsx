@@ -27,8 +27,8 @@ const TopNavbar = () => {
         <div className="w-full md:w-auto">
           <ul className="list-reset flex justify-center md:justify-end flex-wrap text-xs md:text-sm gap-x-5 md:gap-x-10">
             {navData?.map((item, index) => (
-              <li className="font-open" key={index}>
-                <Link href={item.link} className="text-white hover:text-white">
+              <li  key={index}>
+                <Link href={item.link} className="text-white text-xs font-open leading-[18.6px] hover:text-white">
                   {item.label}
                 </Link>
               </li>

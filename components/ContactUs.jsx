@@ -34,10 +34,10 @@ const ContactUs = () => {
           </div>
           {/* Right Form */}
           <div className="lg:w-[493px] lg:h-[516px] bg-white flex flex-col md:ml-auto w-full md:pt-8 mt-8 md:mt-0">
-            <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
+            <h2 className="text-gray-900 heading text-lg mb-1 title-font">
               {title1} <span className="text-default-blue">{title2}</span>
             </h2>
-            <p className="leading-relaxed mb-5 text-gray-600">{description}</p>
+            <p className="leading-relaxed font-Raleway text-base font-normal mb-5 text-gray-600">{description}</p>
 
             <div className="flex mb-4 gap-5">
               <div className="relative mb-4 w-full lg:w-1/2">

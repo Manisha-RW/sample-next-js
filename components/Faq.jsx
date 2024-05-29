@@ -33,10 +33,10 @@ const Faq = () => {
     <div className="mt-20">
       <div className="mx-auto px-5 w-full max-w-screen-lg">
         <div className="flex flex-col items-center">
-          <h2 className="mt-5 text-center font-medium text-3xl md:text-5xl leading-tight md:leading-[58px]">
+          <h2 className="mt-5 heading text-center font-medium text-3xl md:text-5xl leading-tight md:leading-[58px]">
             {title1}<span className="text-default-blue">{title2}</span>
           </h2>
-          <p className="mt-3 font-raleway text-base font-normal text-neutral-500 text-center">
+          <p className="mt-3 font-Raleway text-base font-normal text-neutral-500 text-center">
             {description}
           </p>
         </div>
@@ -50,7 +50,7 @@ const Faq = () => {
                       <span className="font-jakrata text-base font-semibold">
                         {item.heading}
                       </span>
-                      <span className="transition">
+                      <span className="transition font-semibold">
                         <svg
                           fill="none"
                           height="24"
