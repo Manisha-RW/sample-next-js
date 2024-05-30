@@ -1,10 +1,11 @@
 "use client";
+
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const OurClient = ({data}) => {
+const OurClient = ({ data }) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -14,26 +15,27 @@ const OurClient = ({data}) => {
   };
 
   return (
-    <div className="mt-28 flex flex-col items-center">
+    <div className="mt-28 flex flex-col items-center overflow-hidden">
       <div className="text-gray-900 font-raleway leading-[57.6px] text-5xl text-lg mb-1 title-font">
-        {data?.title1} <span className="text-default-blue">{data?.title2}</span> {data?.title3}
+        {data?.title1} <span className="text-default-blue">{data?.title2}</span>
+        {data?.title3}
       </div>
 
       <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8">
-        <Slider {...settings}>
+        <Slider {...settings} className="slick-slider">
           {data?.clientData.map((client, index) => (
             <div key={index} className="flex justify-center">
               <div className="w-full max-w-4xl h-auto md:h-[471px] rounded-lg p-8 text-center flex flex-col items-center">
                 <img
                   className="h-24 w-24 md:h-[102px] md:w-[102px] rounded-full"
-                  src={client.image}
-                  alt={`Client ${client.name}`}
+                  src={client?.image}
+                  alt=""
                 />
                 <p className="font-semibold text-xl md:text-2xl font-raleway text-project-blue mt-4">
-                  {client.name}
+                  {client?.name}
                 </p>
                 <p className="font-normal text-gray-600 mt-4 dark:text-white">
-                  {client.position}
+                  {client?.position}
                 </p>
                 <div className="flex items-center justify-center space-x-2 mt-4">
                   {Array.from({ length: 4 }).map((_, i) => (
@@ -57,7 +59,7 @@ const OurClient = ({data}) => {
                       alt="Inverted comma"
                     />
                     <p className="w-full font-normal text-base text-gray-600 dark:text-white">
-                      {client.description}
+                      {client?.description}
                     </p>
                   </div>
                 </div>
