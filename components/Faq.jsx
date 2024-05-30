@@ -1,46 +1,18 @@
 import React from "react";
-const faqsData = {
-  title1: "FAQ",
-  title2: "s",
-  description:
-    "Suspendisse potenti. Vestibulum gravida turpis ut ipsum efficitur, idullamcorper sem semper",
-  faqData: [
-    {
-      heading: "Maecenas porttitor enim nec velit ultrices?",
-      description:
-        "Pellentesque iaculis, nisl et consectetur mattis, neque eros finibus elit, quis semper ipsum lorem vel augue. Aliquam erat volutpat. Nunc auctor sem a arcu ultrices molestie. Etiam magna risus, pulvinar ut metus at, consequat aliquet justo. Mauris egestas aliquam ligula ut molestie",
-    },
-    {
-      heading: "Maecenas porttitor enim nec velit ultrices?",
-      description:
-        "Pellentesque iaculis, nisl et consectetur mattis, neque eros finibus elit, quis semper ipsum lorem vel augue. Aliquam erat volutpat. Nunc auctor sem a arcu ultrices molestie. Etiam magna risus, pulvinar ut metus at, consequat aliquet justo. Mauris egestas aliquam ligula ut molestie",
-    },
-    {
-      heading: "Maecenas porttitor enim nec velit ultrices?",
-      description:
-        "Pellentesque iaculis, nisl et consectetur mattis, neque eros finibus elit, quis semper ipsum lorem vel augue. Aliquam erat volutpat. Nunc auctor sem a arcu ultrices molestie. Etiam magna risus, pulvinar ut metus at, consequat aliquet justo. Mauris egestas aliquam ligula ut molestie",
-    },
-    {
-      heading: "Maecenas porttitor enim nec velit ultrices?",
-      description:
-        "Pellentesque iaculis, nisl et consectetur mattis, neque eros finibus elit, quis semper ipsum lorem vel augue. Aliquam erat volutpat. Nunc auctor sem a arcu ultrices molestie. Etiam magna risus, pulvinar ut metus at, consequat aliquet justo. Mauris egestas aliquam ligula ut molestie",
-    },
-  ],
-};
-const Faq = () => {
-  const { title1, title2, description, faqData } = faqsData;
+
+const Faq = ({data}) => {
   return (
     <div className="mt-20">
       <div className="mx-auto px-5 w-full max-w-screen-lg">
         <div className="flex flex-col items-center">
           <h2 className="mt-5 heading text-center font-medium text-3xl md:text-5xl leading-tight md:leading-[58px]">
-            {title1}<span className="text-default-blue">{title2}</span>
+            {data?.title1}<span className="text-default-blue">{data?.title2}</span>
           </h2>
           <p className="mt-3 font-Raleway text-base font-normal text-neutral-500 text-center">
-            {description}
+            {data?.description}
           </p>
         </div>
-        {faqData.map((item, index) => (
+        {data.map((item, index) => (
           <div key={index} className="mx-auto mt-8 w-full">
             <div className="transition-all duration-200 bg-white shadow-lg cursor-pointer hover:bg-gray-50">
               <div className="mx-auto grid divide-y divide-neutral-200">
