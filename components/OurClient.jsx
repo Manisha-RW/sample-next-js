@@ -4,37 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ourClientData = {
-  title1: "What",
-  title2: "Our Clients",
-  title3: "Say",
-  clientData: [
-    {
-      image: "/images/client-1.jpg",
-      name: "Ralph Edwards",
-      position: "Senior SEO Executive",
-      description:
-        "I am absolutely delighted to share my positive experience as a client. From the moment I engaged with the company, I was met with exceptional professionalism and dedication to ensuring my satisfaction. The level of service provided was truly outstanding, and every interaction I had with the team was characterized by their unwavering commitment to excellence.",
-    },
-    {
-      image: "/images/client-1.jpg",
-      name: "Marina",
-      position: "CEO",
-      description:
-        "I am absolutely delighted to share my positive experience as a client. From the moment I engaged with the company, I was met with exceptional professionalism and dedication to ensuring my satisfaction. The level of service provided was truly outstanding, and every interaction I had with the team was characterized by their unwavering commitment to excellence.",
-    },
-    {
-      image: "/images/client-1.jpg",
-      name: "George",
-      position: "Manager",
-      description:
-        "I am absolutely delighted to share my positive experience as a client. From the moment I engaged with the company, I was met with exceptional professionalism and dedication to ensuring my satisfaction. The level of service provided was truly outstanding, and every interaction I had with the team was characterized by their unwavering commitment to excellence.",
-    },
-  ],
-};
-
-const OurClient = () => {
-  const { title1, title2, title3, clientData } = ourClientData;
+const OurClient = ({data}) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -45,13 +15,13 @@ const OurClient = () => {
 
   return (
     <div className="mt-28 flex flex-col items-center">
-      <div className="text-gray-900 font-raleway font-semibold leading-[57.6px] text-5xl text-lg mb-1 title-font">
-        {title1} <span className="text-default-blue">{title2}</span> {title3}
+      <div className="text-gray-900 font-raleway leading-[57.6px] text-5xl text-lg mb-1 title-font">
+        {data?.title1} <span className="text-default-blue">{data?.title2}</span> {data?.title3}
       </div>
 
       <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8">
         <Slider {...settings}>
-          {clientData.map((client, index) => (
+          {data?.clientData.map((client, index) => (
             <div key={index} className="flex justify-center">
               <div className="w-full max-w-4xl h-auto md:h-[471px] rounded-lg p-8 text-center flex flex-col items-center">
                 <img

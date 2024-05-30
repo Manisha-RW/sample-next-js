@@ -6,77 +6,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 
-const projectData = {
-  title1: "Our Recent",
-  title2: "Projects",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin felis ut eros laoreet",
-  cardData: [
-    {
-      image: "/images/Project-1.jpg",
-      heading: "Al Raha Beach Buildings",
-      description: "Etiam nec nulla justo Curabitur tristique, ",
-      client: "Client: Al Dar",
-      location: "ABU DHABI",
-      iconImages: [
-        { title: "ABU DHABI", iconImg: "/images/icon-1.png" },
-        { title: "Al Futtaim Carillion", iconImg: "/images/icon-2.png" },
-        { title: "Turner", iconImg: "/images/icon-3.png" },
-      ],
-    },
-    {
-      image: "/images/Project-2.png",
-      heading: "Al Raha Beach Buildings",
-      description: "Etiam nec nulla justo Curabitur tristique, ",
-      client: "Client: Al Dar",
-      location: "ABU DHABI",
-      iconImages: [
-        { title: "ABU DHABI", iconImg: "/images/icon-1.png" },
-        { title: "Al Futtaim Carillion", iconImg: "/images/icon-2.png" },
-        { title: "Turner", iconImg: "/images/icon-3.png" },
-      ],
-    },
-    {
-      image: "/images/Project-3.png",
-      heading: "Al Raha Beach Buildings",
-      description: "Etiam nec nulla justo Curabitur tristique, ",
-      client: "Client: Al Dar",
-      location: "ABU DHABI",
-      iconImages: [
-        { title: "ABU DHABI", iconImg: "/images/icon-1.png" },
-        { title: "Al Futtaim Carillion", iconImg: "/images/icon-2.png" },
-        { title: "Turner", iconImg: "/images/icon-3.png" },
-      ],
-    },
-    {
-      image: "/images/Project-1.jpg",
-      heading: "Al Raha Beach Buildings",
-      description: "Etiam nec nulla justo Curabitur tristique, ",
-      client: "Client: Al Dar",
-      location: "ABU DHABI",
-      iconImages: [
-        { title: "ABU DHABI", iconImg: "/images/icon-1.png" },
-        { title: "Al Futtaim Carillion", iconImg: "/images/icon-2.png" },
-        { title: "Turner", iconImg: "/images/icon-3.png" },
-      ],
-    },
-    {
-      image: "/images/Project-2.png",
-      heading: "Al Raha Beach Buildings",
-      description: "Etiam nec nulla justo Curabitur tristique, ",
-      client: "Client: Al Dar",
-      location: "ABU DHABI",
-      iconImages: [
-        { title: "ABU DHABI", iconImg: "/images/icon-1.png" },
-        { title: "Al Futtaim Carillion", iconImg: "/images/icon-2.png" },
-        { title: "Turner", iconImg: "/images/icon-3.png" },
-      ],
-    },
-  ],
-};
 
-const OurProjects = () => {
-  const { title1, title2, description, cardData } = projectData;
+
+const OurProjects = ({data}) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -92,18 +24,18 @@ const OurProjects = () => {
             <div className="relative mx-auto max-w-7xl">
               <div className="text-left">
                 <h2 className="text-gray-900 heading text-lg mb-1 title-font">
-                  {title1}
-                  <span className="text-default-blue"> {title2}</span>
+                  {data?.title1}
+                  <span className="text-default-blue"> {data?.title2}</span>
                 </h2>
                 <p className="mt-3 w-[453px] h-[48px] text-base font-normal max-w-2xl text-gray-500 sm:mt-4 mb-10">
-                  {description}
+                  {data?.description}
                 </p>
               </div>
 
               {/* Slider Card */}
               <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-1">
                 <Slider {...settings}>
-                  {cardData?.map((i) => (
+                  {data?.cardData?.map((i) => (
                     <div className="flex flex-col w-[362px] pr-5 overflow-hidden">
                       <div className="flex flex-1 flex-col justify-between rounded-lg bg-white p-6">
                         <img

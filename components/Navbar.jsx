@@ -1,25 +1,15 @@
 import React from "react";
 import Link from "next/link";
 
-const navbarData = {
-  logoImg: "/images/svgviewer-png-output.png",
-  links: [
-    { link: "/", label: "Home" },
-    { link: "/", label: "About Us" },
-    { link: "/", label: "Our Brands" },
-    { link: "/", label: "Projects" },
-    { link: "/", label: "Eng" },
-  ],
-};
+const Navbar = ({ data }) => {
+  console.log("data nav", data);
 
-const Navbar = () => {
-  const { logoImg, links } = navbarData;
   return (
     <div>
       <nav className="bg-black bg-transparent p-4 absolute w-full z-20">
         <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
           <div className="text-white font-bold text-3xl mb-4 lg:mb-0">
-            <img src={logoImg} alt="Logo" />
+            <img src={data?.logoImg} alt="Logo" />
           </div>
           {/* <div className="lg:hidden">
               <button className="text-white focus:outline-none">
@@ -40,9 +30,12 @@ const Navbar = () => {
               </button>
             </div> */}
           <div className="hidden text-white lg:flex flex-col lg:flex-row lg:space-x-4 lg:mt-0 mt-4 flex flex-col items-center text-xl">
-            {links?.map((i) => (
-              <Link href={i.link} className="text-white font-Raleway text-base px-4 py-2">
-                {i.label}
+            {data?.links?.map((i) => (
+              <Link
+                href={i?.link}
+                className="text-white font-Raleway text-base px-4 py-2"
+              >
+                {i?.label}
               </Link>
             ))}
             <button className="bg-default-blue font-Raleway text-base rounded w-[148px] h-[52px] mt-4 lg:mt-0">
