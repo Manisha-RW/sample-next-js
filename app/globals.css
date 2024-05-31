@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h2 {
+    @apply font-semibold leading-[57.6px];
+  }
+  h3 {
+    @apply font-semibold leading-[57.6px];
+  }
+}
+/* p {
+  @apply text-sm lg:text-base
+} */
+
+.slick-slider .slick-dots {
+  bottom: 10px;
+}
+
+.slick-slider  .slick-dots li.slick-active button:before  {
+  color: #114B9F;
+}
+
+.slick-slider .slick-dots li button:before {
+  font-size:14px;
+}
