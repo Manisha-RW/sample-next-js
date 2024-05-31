@@ -29,8 +29,9 @@ const Footer = ({ props }) => {
 
             {/* Social  Icons*/}
             <div className="flex mt-4 py-8 space-x-4 justify-center lg:justify-start sm:mt-0 ">
-              {props?.socialData?.map((social) => (
+              {props?.socialData?.map((social, index) => (
                 <Link
+                key={index}
                   href={social?.socialLink}
                   className="w-9 h-9 rounded-full flex justify-center items-center "
                 >

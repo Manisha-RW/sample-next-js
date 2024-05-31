@@ -18,7 +18,7 @@ const OurBrand = ({ props }) => {
           {/* Right section */}
           <div className="grid grid-cols-2 gap-5">
             {props?.brandImages?.map((brands, index) => (
-              <div className="bg-white rounded-lg shadow w-[180px] h-[80px] flex justify-center items-center">
+              <div key={index} className="bg-white rounded-lg shadow w-[180px] h-[80px] flex justify-center items-center">
                 <img
                   key={index}
                   className="max-w-[180px] max-h-[80px]"

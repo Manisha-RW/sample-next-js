@@ -12,7 +12,7 @@ import {
   navData,
   brandData,
 } from "../mock_data";
-import About from "@/components/AboutUs/About";
+
 import Banner from "@/components/HeaderSection/Banner";
 import ContactUs from "@/components/Contact/ContactUs";
 import Faq from "@/components/FaqSection/Faq";
@@ -22,6 +22,7 @@ import OurClient from "@/components/OurClients/OurClient";
 import OurProjects from "@/components/ProjectSection/OurProjects";
 import Statistics from "@/components/MoreInfo/Statistics";
 import TopNavbar from "@/components/Navbars/TopNavbar";
+import About from "@/components/AboutUS/About";
 
 const raleway = Raleway({
   subsets: ["latin"],
