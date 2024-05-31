@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const OurClient = ({ data }) => {
+const OurClient = ({ props }) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -15,15 +15,15 @@ const OurClient = ({ data }) => {
   };
 
   return (
-    <div className="mt-28 flex flex-col items-center overflow-hidden">
-      <div className="text-gray-900 font-raleway leading-[57.6px] text-5xl text-lg mb-1 title-font">
-        {data?.title1} <span className="text-default-blue">{data?.title2}</span>
-        {data?.title3}
-      </div>
+    <div className="mt-28 vsm:mt-[50px] flex flex-col items-center overflow-hidden">
+      <h2 className="font-raleway font-semibold text-3xl md:text-4xl lg:text-5xl leading-snug text-left mb-6">
+        {props?.title1}
+        <span className="text-default-blue font-raleway"> {props?.title2}</span>
+      </h2>
 
       <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8">
         <Slider {...settings} className="slick-slider">
-          {data?.clientData.map((client, index) => (
+          {props?.clientData.map((client, index) => (
             <div key={index} className="flex justify-center">
               <div className="w-full max-w-4xl h-auto md:h-[471px] rounded-lg p-8 text-center flex flex-col items-center">
                 <img
@@ -38,9 +38,9 @@ const OurClient = ({ data }) => {
                   {client?.position}
                 </p>
                 <div className="flex items-center justify-center space-x-2 mt-4">
-                  {Array.from({ length: 4 }).map((_, i) => (
+                  {Array.from({ length: 4 }).map((_, index) => (
                     <svg
-                      key={i}
+                      key={index}
                       className="text-yellow-500 w-4 h-4"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"

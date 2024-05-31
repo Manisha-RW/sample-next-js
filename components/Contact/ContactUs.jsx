@@ -1,24 +1,30 @@
 import React from "react";
 
-const ContactUs = ({data}) => {
+const ContactUs = ({ props }) => {
   return (
-    <div className="mt-[120px]">
+    <div className="mt-[120px] vsm:mt-[50px]">
       <section className="pb-10">
         <div className="container lg:max-w-[1140px] lg:max-h-[589px] px-5 mx-auto flex flex-col lg:flex-row sm:flex-nowrap flex-wrap">
           {/* Left Picture */}
           <div className="lg:max-w-[589px] lg:max-h-[589px] w-full lg:w-auto">
             <img
               className="rounded-lg w-full lg:w-[570px] h-[570px] mx-auto"
-              src={data?.image}
+              src={props?.image}
               alt="Contact Us"
             />
           </div>
           {/* Right Form */}
           <div className="lg:w-[493px] lg:h-[516px] bg-white flex flex-col md:ml-auto w-full md:pt-8 mt-8 md:mt-0">
-            <h2 className="text-gray-900 heading text-lg mb-1 title-font">
-              {data?.title1} <span className="text-default-blue">{data?.title2}</span>
-            </h2>
-            <p className="leading-relaxed font-Raleway text-base font-normal mb-5 text-gray-600">{data?.description}</p>
+            <h3 className="font-raleway font-semibold text-3xl md:text-4xl lg:text-5xl leading-snug text-left mb-6">
+              {props?.title1}{" "}
+              <span className="text-default-blue font-raleway">
+                {props?.title2}
+              </span>
+            </h3>
+
+            <p className="leading-relaxed font-Raleway text-base font-normal mb-5 text-gray-600">
+              {props?.description}
+            </p>
 
             <div className="flex mb-4 gap-5">
               <div className="relative mb-4 w-full lg:w-1/2">

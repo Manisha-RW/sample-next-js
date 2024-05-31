@@ -1,26 +1,26 @@
 import React from "react";
-
-const Faq = ({data}) => {
+const jakartaFontClass = "font-plus-jakarta-sans";
+const Faq = ({props}) => {
   return (
-    <div className="mt-20">
+    <div className="lg:mt-20 vsm:mt-[50px]">
       <div className="mx-auto px-5 w-full max-w-screen-lg">
         <div className="flex flex-col items-center">
-          <h2 className="mt-5 heading text-center font-medium text-3xl md:text-5xl leading-tight md:leading-[58px]">
-            {data?.title1}<span className="text-default-blue">{data?.title2}</span>
-          </h2>
+          <h3 className="mt-5 heading text-center text-3xl md:text-5xl  md:leading-[58px]">
+            {props?.title1}<span className="text-default-blue">{props?.title2}</span>
+          </h3>
           <p className="mt-3 font-Raleway text-base font-normal text-neutral-500 text-center">
-            {data?.description}
+            {props?.description}
           </p>
         </div>
-        {data.map((item, index) => (
+        {props?.faqData?.map((faq, index) => (
           <div key={index} className="mx-auto mt-8 w-full">
             <div className="transition-all duration-200 bg-white shadow-lg cursor-pointer hover:bg-gray-50">
               <div className="mx-auto grid divide-y divide-neutral-200">
-                <div className="py-5 w-full">
+                <div className="py-5 w-full p-2">
                   <details className="group">
                     <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-                      <span className="font-jakrata text-base font-semibold">
-                        {item.heading}
+                      <span className="jakartaFontClass text-base font-semibold">
+                        {faq?.heading}
                       </span>
                       <span className="transition font-semibold">
                         <svg
@@ -40,7 +40,7 @@ const Faq = ({data}) => {
                       </span>
                     </summary>
                     <p className="group-open:animate-fadeIn mt-3 text-neutral-600">
-                      {item.description}
+                      {faq?.description}
                     </p>
                   </details>
                 </div>
