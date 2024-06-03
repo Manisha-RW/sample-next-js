@@ -21,7 +21,7 @@ const OurClient = ({ props }) => {
         <span className="text-default-blue font-raleway"> {props?.title2}</span>
       </h2>
 
-      <div className="client-slider-container shadow-lg w-full max-w-4xl mt-8">
+      <div className="client-slider-container shadow-kg w-full max-w-4xl mt-8">
         <Slider {...settings} className="slick-slider">
           {props?.clientData.map((client, index) => (
             <div key={index} className="flex justify-center">
