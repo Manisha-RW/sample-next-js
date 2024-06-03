@@ -136,7 +136,7 @@ const Navbar = ({ props }) => {
                         </svg>
                       </button>
                       {isDropdownOpen === menu.label && (
-                        <div className="absolute bg-white top-full left-0 mt-2 py-2 rounded-lg shadow-lg">
+                        <div className="absolute bg-white top-full left-0 mt-2 py-2 rounded-lg shadow-kg">
                           {dropdownItems.map((dropDown) => (
                             <Link
                               key={dropDown?.label}

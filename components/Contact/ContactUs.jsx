@@ -36,7 +36,7 @@ const ContactUs = ({ props }) => {
                   id="name"
                   name="name"
                   placeholder="Enter your name"
-                  className="w-full shadow-md bg-white rounded border border-gray-100 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-2 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full shadow-kg bg-white rounded border border-gray-100 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-2 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
               <div className="relative mb-4">
@@ -47,7 +47,7 @@ const ContactUs = ({ props }) => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full shadow-md lg:max-w-[241px] lg:max-h-[52px] bg-white rounded border border-gray-100 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-2 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full shadow-kg lg:max-w-[241px] lg:max-h-[52px] bg-white rounded border border-gray-100 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-2 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
@@ -61,7 +61,7 @@ const ContactUs = ({ props }) => {
                   Email Address*
                 </label>
                 <input
-                  className="appearance-none shadow-md block w-full  text-gray-700 border border-gray-100 focus:ring-2 focus:ring-blue-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  className="appearance-none shadow-kg block w-full  text-gray-700 border border-gray-100 focus:ring-2 focus:ring-blue-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="grid-email"
                   type="email"
                   placeholder="Enter your email"
@@ -79,7 +79,7 @@ const ContactUs = ({ props }) => {
               <textarea
                 id="message"
                 name="message"
-                className="w-full lg:w-[492px] shadow-md lg:h-[72px] bg-white rounded border border-gray-100 focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                className="w-full lg:w-[492px] shadow-kg lg:h-[72px] bg-white rounded border border-gray-100 focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               ></textarea>
             </div>
             <button className="w-full lg:w-[492px] text-white bg-default-blue font-semibold font-raleway text-base border-0 py-2 px-6 focus:outline-none rounded">
