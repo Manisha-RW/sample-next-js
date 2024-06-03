@@ -34,6 +34,9 @@ module.exports = {
         12: "10px",
         22: "20px",
       },
+      shadow: {
+        'shadow-kg': 'box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px',
+      },
     },
   },
   plugins: [

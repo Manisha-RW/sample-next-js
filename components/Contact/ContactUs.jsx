@@ -8,7 +8,7 @@ const ContactUs = ({ props }) => {
           {/* Left Picture */}
           <div className="lg:max-w-[589px] lg:max-h-[589px] w-full lg:w-auto">
             <img
-              className="rounded-lg w-full lg:w-[570px] h-[570px] mx-auto"
+              className="rounded-lg w-full lg:w-[570px] lg:h-[570px] md:w-[740px] md:h-[300px] vsm:w-[400px] vsm:h-[250px] mx-auto"
               src={props?.image}
               alt="Contact Us"
             />
