@@ -15,7 +15,10 @@ export const bannerData = {
   heading: "Shaping Bathrooms Into Something More",
   subHeading:
     "Transform Your Bathroom into a Luxurious Oasis - Innovative Design and Quality Products to Create Your Dream Bathroom",
+<<<<<<< HEAD
     btnData: { Btnlink: "/", BtnName: "Explore Products"},
+=======
+>>>>>>> f8e43539160b2bdc39f9a2ed5df04958e9357ff7
 };
 
 export const contactData = {
