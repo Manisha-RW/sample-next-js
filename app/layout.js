@@ -1,6 +1,8 @@
 import Footer from "@/components/FooterSection/Footer";
 import "./globals.css";
-import { footerData } from "../mock_data";
+// import { footerData } from "../mock_data";
+import { PrismicPreview } from '@prismicio/next'
+import { repositoryName } from '@/prismicio'
 
 export const metadata = {
   title: "Next App",
@@ -12,7 +14,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <Footer props={footerData} />
+        <PrismicPreview repositoryName={repositoryName} />
+        {/* <Footer props={footerData} /> */}
       </body>
     </html>
   );
