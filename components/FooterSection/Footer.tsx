@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { SliceZone } from "@prismicio/react";
+import { components } from "../../slices";
 import {
   ImageFieldImage,
   KeyTextField,
@@ -14,18 +16,6 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 interface Props {
   footer: PrismicDocumentWithoutUID<Simplify<FooterDocumentData>>;
-  // data: {
-  //   logoImage: ImageFieldImage[];
-  //   logoLink: LinkField;
-  //   title: KeyTextField;
-  //   description: RichTextField;
-  //   address: RichTextField;
-  //   socialData: Array<{
-  //     socialmage: ImageFieldImage[];
-  //     socialLink: LinkField;
-  //   }>;
-  //   copyrightText: KeyTextField;
-  // };
 }
 
 export default function Footer({ footer }: Props) {
@@ -53,34 +43,13 @@ export default function Footer({ footer }: Props) {
             {/* Social  Icons*/}
             <div className="flex mt-4 py-8 space-x-4 justify-center lg:justify-start sm:mt-0 ">
               {data.socialData.map((item, index) => (
-                <PrismicNextLink key ={index} field={item.socialLink}>
+                <PrismicNextLink key={index} field={item.socialLink}>
                   <PrismicNextImage field={item.socialmage} />
                 </PrismicNextLink>
               ))}
             </div>
           </div>
-
-          {/* Footer Links */}
-          {/* {props?.linksData?.map((LinkHeading, indexs) => (
-            <div
-              className="lg:mx-auto text-center sm:text-left text-white"
-              key={indexs}
-            >
-              <h4 className="text-base font-semibold font-raleway mb-7">
-                {LinkHeading?.heading}
-              </h4>
-              <ul>
-                {LinkHeading.links?.map((FooterLinks, index) => (
-                  <li
-                    key={index}
-                    className="mb-6 font-raleway text-gray-400 font-normal text-sm"
-                  >
-                    <Link href="/">{FooterLinks?.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))} */}
+          <SliceZone slices={footer.data.slices} components={components} />
         </div>
       </div>
       <hr className="text-gray-400" />
