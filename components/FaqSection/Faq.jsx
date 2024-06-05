@@ -17,7 +17,7 @@ const Faq = ({props}) => {
             <div className="transition-all duration-200 bg-white shadow-kg cursor-pointer hover:bg-gray-50">
               <div className="mx-auto grid divide-y divide-neutral-200">
                 <div className="py-5 w-full p-2 px-8">
-                  <details className="group">+65
+                  <details className="group">
                     <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
                       <span className="jakartaFontClass text-base font-semibold">
                         {faq?.heading}

@@ -188,7 +188,7 @@ export const projectData = {
       heading: "Al Raha Beach Buildings",
       description: "Etiam nec nulla justo Curabitur tristique, ",
       client: "Client: Al Dar",
-      location: "ABU DHABI",
+      // location: "ABU DHABI",
       iconImages: [
         { title: "ABU DHABI", iconImg: "/images/icon-1.png" },
         { title: "Al Futtaim Carillion", iconImg: "/images/icon-2.png" },

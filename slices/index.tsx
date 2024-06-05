@@ -9,4 +9,9 @@ export const components = {
   faq: dynamic(() => import("./Faq")),
   hero_section: dynamic(() => import("./HeroSection")),
   image_content_with_column: dynamic(() => import("./ImageContentWithColumn")),
+  link_section: dynamic(() => import("./LinkSection")),
+  menu_bar: dynamic(() => import("./MenuBar")),
+  project: dynamic(() => import("./Project")),
+  statistics: dynamic(() => import("./Statistics")),
+  top_navbar: dynamic(() => import("./TopNavbar")),
 };

@@ -1,48 +1,67 @@
+"use client";
 import React from "react";
 import Link from "next/link";
+import {
+  ImageFieldImage,
+  KeyTextField,
+  LinkField,
+  PrismicDocumentWithoutUID,
+  RichTextField,
+} from "@prismicio/client";
+import { PrismicRichText } from "@prismicio/react";
+import { FooterDocumentData, Simplify } from "../../prismicio-types";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
-const Footer = ({ props }) => {
+interface Props {
+  footer: PrismicDocumentWithoutUID<Simplify<FooterDocumentData>>;
+  // data: {
+  //   logoImage: ImageFieldImage[];
+  //   logoLink: LinkField;
+  //   title: KeyTextField;
+  //   description: RichTextField;
+  //   address: RichTextField;
+  //   socialData: Array<{
+  //     socialmage: ImageFieldImage[];
+  //     socialLink: LinkField;
+  //   }>;
+  //   copyrightText: KeyTextField;
+  // };
+}
+
+export default function Footer({ footer }: Props) {
+  const { data } = footer;
   return (
     <footer className="w-full bg-default-blue">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8 py-14 max-w-xs mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-full">
           <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
-            {props?.logoImage && (
-              <Link
-                href={props?.logoLink}
-                className="flex justify-center lg:justify-start"
-              >
-                <img src={props?.logoImage} alt="Logo" />
-              </Link>
-            )}
+            <PrismicNextLink field={data.logoLink}>
+              <PrismicNextImage field={data.logoImage} />
+            </PrismicNextLink>
             <div className="py-4 text-sm text-white lg:max-w-[266px] lg:max-h-[101px] text-center lg:text-left">
               <h4 className="font-raleway font-semibold text-xl">
-                {props?.title}
+                {data.title}
               </h4>
               <p className="font-raleway font-normal text-base text-gray-300">
-                {props?.description}
+                <PrismicRichText field={data.description} />
               </p>
               <p className="lg:max-w-[175px] lg:max-h-[44px] text-gray-400">
-                {props?.address}
+                <PrismicRichText field={data.address} />
               </p>
             </div>
 
             {/* Social  Icons*/}
             <div className="flex mt-4 py-8 space-x-4 justify-center lg:justify-start sm:mt-0 ">
-              {props?.socialData?.map((social, index) => (
-                <Link
-                key={index}
-                  href={social?.socialLink}
-                  className="w-9 h-9 rounded-full flex justify-center items-center "
-                >
-                  <img src={social?.image}></img>
-                </Link>
+              {data.socialData.map((item, index) => (
+                <PrismicNextLink key ={index} field={item.socialLink}>
+                  <PrismicNextImage field={item.socialmage} />
+                </PrismicNextLink>
               ))}
             </div>
           </div>
 
           {/* Footer Links */}
-          {props?.linksData?.map((LinkHeading, indexs) => (
+          {/* {props?.linksData?.map((LinkHeading, indexs) => (
             <div
               className="lg:mx-auto text-center sm:text-left text-white"
               key={indexs}
@@ -61,17 +80,15 @@ const Footer = ({ props }) => {
                 ))}
               </ul>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
       <hr className="text-gray-400" />
       <div className="flex items-center justify-center pb-8 pt-[9px] md:py-8">
         <p className=" text-gray-400 font-raleway text-sm md:text-[12px] font-normal">
-          {props?.copyrightText}
+          {data.copyrightText}
         </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

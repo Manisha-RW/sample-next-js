@@ -40,13 +40,7 @@ export default function Brands({ slice }: Props) {
           <div className="grid grid-cols-2 gap-5">
             {slice.primary.brandImages.map((item, index) => (
               <div key={index} className="bg-white rounded-lg shadow-kg w-[180px] h-[80px] flex justify-center items-center">
-                {/* <img
-                  key={index}
-                  className="max-w-[180px] max-h-[80px]"
-                  src={brands?.Img}
-                  alt=""
-                ></img> */}
-                <PrismicNextImage className="max-w-[180px] max-h-[80px]" field={item.Img as ImageFieldImage} />
+                <PrismicNextImage className="max-w-[180px] max-h-[80px]" alt="" field={item.Img as ImageFieldImage} />
               </div>
             ))}
           </div>

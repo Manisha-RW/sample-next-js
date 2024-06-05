@@ -11,6 +11,18 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "project": {
+              "type": "SharedSlice"
+            },
+            "menu_bar": {
+              "type": "SharedSlice"
+            },
+            "top_navbar": {
+              "type": "SharedSlice"
+            },
+            "statistics": {
+              "type": "SharedSlice"
+            },
             "clients": {
               "type": "SharedSlice"
             },
