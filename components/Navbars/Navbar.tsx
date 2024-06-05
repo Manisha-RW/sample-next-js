@@ -1,38 +1,17 @@
-/**
- * @typedef {import("@prismicio/client").Content.MenuBarSlice} MenuBarSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<MenuBarSlice>} MenuBarProps
- * @param {MenuBarProps}
- */
-
 "use client";
-import {
-  ImageFieldImage,
-  KeyTextField,
-  LinkField,
-  RichTextField,
-} from "@prismicio/client";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { NavbarDocumentData, Simplify } from "../../prismicio-types";
+import { PrismicDocumentWithoutUID } from "@prismicio/client";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 interface Props {
-  slice: {
-    primary: {
-      links: Array<{
-        label: KeyTextField;
-        link: LinkField;
-      }>;
-
-      logoImg: ImageFieldImage[];
-      dropdownLabel: KeyTextField;
-      dropdown: Array<{
-        label: KeyTextField;
-        link: LinkField;
-      }>;
-    };
-  };
+  navbar: PrismicDocumentWithoutUID<Simplify<NavbarDocumentData>>;
 }
 
-export default function MenuBar({ slice }: Props) {
+export default function Navbar ({ navbar }: Props) {
+  const { data } = navbar;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuButtonClicked, setIsMenuButtonClicked] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -70,17 +49,16 @@ export default function MenuBar({ slice }: Props) {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
+
     <div>
       <nav className="p-4 absolute w-full z-20 bg-transparent">
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="container mx-auto mt-20 flex justify-between items-center">
           <div className="flex items-center justify-between w-full lg:w-auto">
             <div className="text-white font-medium text-3xl mb-4 lg:mb-0">
-              {/* <img src={props?.logoImg} alt="Logo" /> */}
-              <PrismicNextImage
-                alt=""
-                field={slice.primary.logoImg as ImageFieldImage}
-              />
+          
+              <PrismicNextImage alt="" field={data.logoImg} />
             </div>
             <div className="lg:hidden">
               <button
@@ -125,11 +103,9 @@ export default function MenuBar({ slice }: Props) {
             <div className="flex flex-col lg:flex-row lg:space-x-4 items-center mt-4 lg:mt-0 w-full lg:w-auto">
               <div className="lg:hidden w-full flex justify-between items-center px-4 mt-4">
                 <div className="text-white font-bold text-3xl mb-4 lg:mb-0">
-                  {/* <img src={props?.logoImg} alt="Logo" /> */}
-                  <PrismicNextImage
-                    alt=""
-                    field={slice.primary.logoImg as ImageFieldImage}
-                  />
+                 
+                  <PrismicNextImage alt="" field={data.logoImg} />
+
                 </div>
                 <button
                   onClick={closeMenu}
@@ -152,17 +128,19 @@ export default function MenuBar({ slice }: Props) {
                 </button>
               </div>
 
-              {slice.primary.links.map((item, index) => (
-                <React.Fragment key={item.label}>
+              {data.links.map((item, index) => (
+                <PrismicNextLink className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap mb-4 lg:mb-0" key={index} field={item.link}>{item.label}</PrismicNextLink>
+              ))}
+
+              {/* {slice.primary.links.map((item, index) => (
+              <React.Fragment key={menu.label}>
+                {menu.dropdown ? (
                   <div className="relative mb-4 lg:mb-0">
                     <button
-                      // onClick={() => toggleDropdown({menu.label})}
+                      onClick={() => toggleDropdown(menu.label)}
                       className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap"
                     >
-                      <PrismicNextLink field={item.link}>
-                        {item.label}
-                      </PrismicNextLink>
-
+                      {menu.label}
                       <svg
                         className="h-4 w-4 inline ml-1"
                         fill="none"
@@ -177,23 +155,32 @@ export default function MenuBar({ slice }: Props) {
                         />
                       </svg>
                     </button>
-
-                    {/* <div className="absolute bg-white top-full left-0 mt-2 py-2 rounded-lg shadow-kg">
-                          {slice.primary.dropdown.map((item) => (
-                            // <Link
-                            //   key={dropDown?.label}
-                            //   href={dropDown?.link}
-                            //   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                            //   onClick={closeMenu}
-                            // >
-                            //   {dropDown?.label}
-                            // </Link>
-                            <PrismicNextLink field={item.link}>{item.label}</PrismicNextLink>
-                          ))}
-                        </div> */}
+                    {isDropdownOpen === menu.label && (
+                      <div className="absolute bg-white top-full left-0 mt-2 py-2 rounded-lg shadow-kg">
+                        {dropdownItems.map((dropDown) => (
+                          <Link
+                            key={dropDown?.label}
+                            href={dropDown?.link}
+                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                            onClick={closeMenu}
+                          >
+                            {dropDown?.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </React.Fragment>
-              ))}
+                ) : (
+                  <Link
+                    href={menu?.link}
+                    className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap mb-4 lg:mb-0"
+                    onClick={closeMenu}
+                  >
+                    {menu?.label}
+                  </Link>
+                )}
+              </React.Fragment>
+            ))} */}
               <div className="w-full flex justify-center lg:justify-start mb-4 lg:mb-0">
                 <button
                   className={`bg-default-blue text-white font-Raleway text-base rounded w-[148px] h-[52px] ${
@@ -211,4 +198,8 @@ export default function MenuBar({ slice }: Props) {
       </nav>
     </div>
   );
-}
+};
+
+
+
+

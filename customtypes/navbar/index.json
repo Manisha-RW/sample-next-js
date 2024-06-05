@@ -1,0 +1,63 @@
+{
+  "format": "custom",
+  "id": "navbar",
+  "label": "Navbar",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logoImg": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "links": {
+        "type": "Group",
+        "config": {
+          "label": "Links",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "isDropdown": {
+        "type": "Boolean",
+        "config": {
+          "label": "Dropdown",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "dropdown_items": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}
