@@ -42,6 +42,7 @@ export default function HeroSection({ slice }: Props) {
         <PrismicNextImage
           alt=""
           field={slice.primary.bgImage as ImageFieldImage}
+          className="object-cover object-center w-full h-full"
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
