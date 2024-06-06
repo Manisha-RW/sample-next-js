@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const OurProjects = ({ props }) => {
   return (
@@ -54,7 +55,7 @@ const OurProjects = ({ props }) => {
                       className="flex flex-col w-[362px] pr-5 overflow-hidden"
                     >
                       <div className="bg-white rounded-lg p-6">
-                        <img
+                        <Image
                           className="h-48 w-full rounded-lg object-cover mb-4"
                           src={card?.image}
                           alt=""
@@ -81,7 +82,7 @@ const OurProjects = ({ props }) => {
                         <div className="grid grid-cols-2 gap-4">
                           {card?.iconImages?.map((cardData, index) => (
                             <div key={index} className="flex items-center">
-                              <img
+                              <Image
                                 src={cardData.iconImg}
                                 alt=""
                                 className="w-6 h-6 mr-2"

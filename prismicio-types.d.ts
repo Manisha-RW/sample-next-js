@@ -214,32 +214,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-/**
- * Item in *Navbar → Links*
- */
-export interface NavbarDocumentDataLinksItem {
-  /**
-   * Label field in *Navbar → Links*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.links[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-
-  /**
-   * Link field in *Navbar → Links*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.links[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-type NavbarDocumentDataSlicesSlice = DropdownItemsSlice;
+type NavbarDocumentDataSlicesSlice = MenusSlice;
 
 /**
  * Content for Navbar documents
@@ -255,29 +230,6 @@ interface NavbarDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   logoImg: prismic.ImageField<never>;
-
-  /**
-   * Links field in *Navbar*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.links[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  links: prismic.GroupField<Simplify<NavbarDocumentDataLinksItem>>;
-
-  /**
-   * Dropdown field in *Navbar*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: navbar.isDropdown
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  isDropdown: prismic.BooleanField;
 
   /**
    * Slice Zone field in *Navbar*
@@ -661,88 +613,6 @@ export type ContactSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *DropdownItems → Default → Primary → DropdownLinks*
- */
-export interface DropdownItemsSliceDefaultPrimaryDropdownItem {
-  /**
-   * Label field in *DropdownItems → Default → Primary → DropdownLinks*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: dropdown_items.default.primary.dropdown[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-
-  /**
-   * Link field in *DropdownItems → Default → Primary → DropdownLinks*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: dropdown_items.default.primary.dropdown[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-/**
- * Primary content in *DropdownItems → Default → Primary*
- */
-export interface DropdownItemsSliceDefaultPrimary {
-  /**
-   * Parent Label field in *DropdownItems → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: dropdown_items.default.primary.parentLabel
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  parentLabel: prismic.KeyTextField;
-
-  /**
-   * DropdownLinks field in *DropdownItems → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: dropdown_items.default.primary.dropdown[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  dropdown: prismic.GroupField<
-    Simplify<DropdownItemsSliceDefaultPrimaryDropdownItem>
-  >;
-}
-
-/**
- * Default variation for DropdownItems Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type DropdownItemsSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<DropdownItemsSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *DropdownItems*
- */
-type DropdownItemsSliceVariation = DropdownItemsSliceDefault;
-
-/**
- * DropdownItems Shared Slice
- *
- * - **API ID**: `dropdown_items`
- * - **Description**: DropdownItems
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type DropdownItemsSlice = prismic.SharedSlice<
-  "dropdown_items",
-  DropdownItemsSliceVariation
->;
-
-/**
  * Item in *Faq → Default → Primary → Faqs*
  */
 export interface FaqSliceDefaultPrimaryFaqsItem {
@@ -1090,6 +960,95 @@ export type LinkSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Menus → Default → Primary → ChildMenus*
+ */
+export interface MenusSliceDefaultPrimaryChildmenusItem {
+  /**
+   * MenuLabel field in *Menus → Default → Primary → ChildMenus*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menus.default.primary.childmenus[].menulabel
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menulabel: prismic.KeyTextField;
+
+  /**
+   * MenuLink field in *Menus → Default → Primary → ChildMenus*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menus.default.primary.childmenus[].menulink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menulink: prismic.LinkField;
+}
+
+/**
+ * Primary content in *Menus → Default → Primary*
+ */
+export interface MenusSliceDefaultPrimary {
+  /**
+   * MenuLabel field in *Menus → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menus.default.primary.menulabel
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menulabel: prismic.KeyTextField;
+
+  /**
+   * MenuLink field in *Menus → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menus.default.primary.menulink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menulink: prismic.LinkField;
+
+  /**
+   * ChildMenus field in *Menus → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menus.default.primary.childmenus[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  childmenus: prismic.GroupField<
+    Simplify<MenusSliceDefaultPrimaryChildmenusItem>
+  >;
+}
+
+/**
+ * Default variation for Menus Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MenusSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MenusSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Menus*
+ */
+type MenusSliceVariation = MenusSliceDefault;
+
+/**
+ * Menus Shared Slice
+ *
+ * - **API ID**: `menus`
+ * - **Description**: Menus
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MenusSlice = prismic.SharedSlice<"menus", MenusSliceVariation>;
+
+/**
  * Item in *Project → Default → Primary → Card Data*
  */
 export interface ProjectSliceDefaultPrimaryCardDataItem {
@@ -1421,7 +1380,6 @@ declare module "@prismicio/client" {
       HomepageDocumentDataSlicesSlice,
       NavbarDocument,
       NavbarDocumentData,
-      NavbarDocumentDataLinksItem,
       NavbarDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
@@ -1441,11 +1399,6 @@ declare module "@prismicio/client" {
       ContactSliceDefaultPrimary,
       ContactSliceVariation,
       ContactSliceDefault,
-      DropdownItemsSlice,
-      DropdownItemsSliceDefaultPrimaryDropdownItem,
-      DropdownItemsSliceDefaultPrimary,
-      DropdownItemsSliceVariation,
-      DropdownItemsSliceDefault,
       FaqSlice,
       FaqSliceDefaultPrimaryFaqsItem,
       FaqSliceDefaultPrimary,
@@ -1464,6 +1417,11 @@ declare module "@prismicio/client" {
       LinkSectionSliceDefaultPrimary,
       LinkSectionSliceVariation,
       LinkSectionSliceDefault,
+      MenusSlice,
+      MenusSliceDefaultPrimaryChildmenusItem,
+      MenusSliceDefaultPrimary,
+      MenusSliceVariation,
+      MenusSliceDefault,
       ProjectSlice,
       ProjectSliceDefaultPrimaryCardDataItem,
       ProjectSliceDefaultPrimaryIconImagesItem,

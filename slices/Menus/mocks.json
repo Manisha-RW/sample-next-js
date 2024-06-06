@@ -3,32 +3,39 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"parentLabel": {
+			"menulabel": {
 				"__TYPE__": "FieldContent",
-				"value": "motor",
+				"value": "wonder",
 				"type": "Text"
 			},
-			"dropdown": {
+			"menulink": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"childmenus": {
 				"__TYPE__": "GroupContentType",
 				"value": [
 					{
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"label",
+								"menulabel",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "mine",
+									"value": "electricity",
 									"type": "Text"
 								}
 							],
 							[
-								"link",
+								"menulink",
 								{
 									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com"
+										"url": "https://slicemachine.dev"
 									}
 								}
 							]

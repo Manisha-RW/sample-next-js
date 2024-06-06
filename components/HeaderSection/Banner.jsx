@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Elements/Button";
 import { exploreBtnData } from "../../mock_data";
+import Image from "next/image";
 
 const Banner = ({ props }) => {
   return (
@@ -8,7 +9,7 @@ const Banner = ({ props }) => {
       {/* Banner Section */}
       <div className="relative h-screen text-white overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src={props?.bgImage}
             alt="Background Image"
             className="object-cover object-center w-full h-full"

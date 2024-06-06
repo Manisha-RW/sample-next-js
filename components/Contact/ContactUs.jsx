@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const ContactUs = ({ props }) => {
   return (
@@ -7,7 +8,7 @@ const ContactUs = ({ props }) => {
         <div className="container lg:max-w-[1140px] lg:max-h-[589px] px-5 mx-auto flex flex-col lg:flex-row sm:flex-nowrap flex-wrap">
           {/* Left Picture */}
           <div className="lg:max-w-[589px] lg:max-h-[589px] w-full lg:w-auto">
-            <img
+            <Image
               className="rounded-lg w-full lg:w-[570px] lg:h-[570px] md:w-[740px] md:h-[300px] vsm:w-[400px] vsm:h-[250px] mx-auto"
               src={props?.image}
               alt="Contact Us"

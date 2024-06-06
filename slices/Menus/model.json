@@ -1,8 +1,8 @@
 {
-  "id": "dropdown_items",
+  "id": "menus",
   "type": "SharedSlice",
-  "name": "DropdownItems",
-  "description": "DropdownItems",
+  "name": "Menus",
+  "description": "Menus",
   "variations": [
     {
       "id": "default",
@@ -12,30 +12,38 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "parentLabel": {
+        "menulabel": {
           "type": "Text",
           "config": {
-            "label": "Parent Label",
+            "label": "MenuLabel",
             "placeholder": ""
           }
         },
-        "dropdown": {
+        "menulink": {
+          "type": "Link",
+          "config": {
+            "label": "MenuLink",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "childmenus": {
           "type": "Group",
           "config": {
-            "label": "DropdownLinks",
+            "label": "ChildMenus",
             "repeat": true,
             "fields": {
-              "label": {
+              "menulabel": {
                 "type": "Text",
                 "config": {
-                  "label": "Label",
+                  "label": "MenuLabel",
                   "placeholder": ""
                 }
               },
-              "link": {
+              "menulink": {
                 "type": "Link",
                 "config": {
-                  "label": "Link",
+                  "label": "MenuLink",
                   "placeholder": "",
                   "select": null
                 }

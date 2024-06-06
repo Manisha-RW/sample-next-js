@@ -10,18 +10,18 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import React from "react";
 
-interface Props {
-  slice: {
-    primary: {
-      image: ImageFieldImage[];
-      title1: KeyTextField;
-      title2: KeyTextField;
-      description: RichTextField;
-    };
-  };
-}
+// interface Props {
+//   slice: {
+//     primary: {
+//       image: ImageFieldImage[];
+//       title1: KeyTextField;
+//       title2: KeyTextField;
+//       description: RichTextField;
+//     };
+//   };
+// }
 
-export default function Contact({ slice }: Props) {
+export default function Contact({ slice }) {
   return (
     <div className="mt-[120px] vsm:mt-[50px]">
       <section className="pb-10">

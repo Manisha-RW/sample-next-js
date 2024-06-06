@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const About = ({ props }) => {
   return (
@@ -10,7 +11,7 @@ const About = ({ props }) => {
             className="flex flex-col lg:flex-row md:flex-col sm:flex-col justify-center gap-10 lg:gap-20 lg:items-center"
           >
             <div className="w-full lg:w-[590px] h-auto lg:h-[563px] relative">
-              <img
+              <Image
                 src={about?.image}
                 className="rounded-lg w-full h-auto lg:max-w-full"
                 alt="About us"

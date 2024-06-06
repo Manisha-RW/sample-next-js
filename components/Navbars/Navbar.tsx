@@ -6,14 +6,15 @@ import { PrismicDocumentWithoutUID } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { SliceZone } from "@prismicio/react";
 // import { components } from "../../slices";
-import DropdownItems from "../../slices/DropdownItems";
+import Menus from "../../slices/Menus";
+// import DropdownItems from "../../slices/DropdownItems";
 
 interface Props {
   navbar: PrismicDocumentWithoutUID<Simplify<NavbarDocumentData>>;
 }
 
 const components = {
-  dropdown_items: DropdownItems,
+  menus: Menus,
 };
 
 export default function Navbar({ navbar }: Props) {
@@ -114,9 +115,15 @@ export default function Navbar({ navbar }: Props) {
                   </svg>
                 </button>
               </div>
+              <>
+                <SliceZone
+                  slices={navbar.data.slices}
+                  components={components}
+                />
+              </>
 
               {/* Dropdown Navbar fields */}
-              {navbar.data.isDropdown ? (
+              {/* {navbar.data.isDropdown ? (
                 <>
                   {data.links.map((item: any, index: number) => (
                     <PrismicNextLink
@@ -134,7 +141,7 @@ export default function Navbar({ navbar }: Props) {
                 </>
               ) : (
                 <>
-                  {/* Other Navbar fields */}
+                  
                   {data.links.map((item: any, index: number) => (
                     <PrismicNextLink
                       className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap mb-4 lg:mb-0"
@@ -145,7 +152,7 @@ export default function Navbar({ navbar }: Props) {
                     </PrismicNextLink>
                   ))}
                 </>
-              )}
+              )} */}
               <div className="w-full flex justify-center lg:justify-start  mb-4 lg:mb-0">
                 <button className="bg-default-blue text-white font-Raleway lg:mt-0 vsm:mt-36 text-base rounded w-[148px] h-[52px]">
                   Contact Us

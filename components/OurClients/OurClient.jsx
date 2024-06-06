@@ -4,6 +4,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 const OurClient = ({ props }) => {
   var settings = {
@@ -26,7 +27,7 @@ const OurClient = ({ props }) => {
           {props?.clientData.map((client, index) => (
             <div key={index} className="flex justify-center">
               <div className="w-full max-w-4xl h-auto md:h-[471px] rounded-lg p-8 text-center flex flex-col items-center">
-                <img
+                <Image
                   className="h-24 w-24 md:h-[102px] md:w-[102px] rounded-full"
                   src={client?.image}
                   alt=""
@@ -53,7 +54,7 @@ const OurClient = ({ props }) => {
                 </div>
                 <div className="flex justify-center mt-4">
                   <div className="flex w-full max-w-3xl">
-                    <img
+                    <Image
                       className="w-9 h-10 mx-auto text-gray-400"
                       src="/images/Inverted-comma.png"
                       alt="Inverted comma"

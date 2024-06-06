@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const OurBrand = ({ props }) => {
   return (
@@ -19,12 +20,12 @@ const OurBrand = ({ props }) => {
           <div className="grid grid-cols-2 gap-5">
             {props?.brandImages?.map((brands, index) => (
               <div key={index} className="bg-white rounded-lg shadow-kg w-[180px] h-[80px] flex justify-center items-center">
-                <img
+                <Image
                   key={index}
                   className="max-w-[180px] max-h-[80px]"
                   src={brands?.Img}
                   alt=""
-                ></img>
+                />
               </div>
             ))}
           </div>

@@ -16,23 +16,23 @@ import "slick-carousel/slick/slick-theme.css";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
-interface Props {
-  slice: {
-    primary: {
-      clientData: Array<{
-        image: ImageFieldImage[];
-        name: KeyTextField;
-        position: KeyTextField;
-        description: RichTextField;
-      }>;
-      title1: KeyTextField;
-      title2: KeyTextField;
-      title3: KeyTextField;
-    };
-  };
-}
+// interface Props {
+//   slice: {
+//     primary: {
+//       clientData: Array<{
+//         image: ImageFieldImage[];
+//         name: KeyTextField;
+//         position: KeyTextField;
+//         description: RichTextField;
+//       }>;
+//       title1: KeyTextField;
+//       title2: KeyTextField;
+//       title3: KeyTextField;
+//     };
+//   };
+// }
 
-export default function Clients({ slice }: Props) {
+export default function Clients({ slice }) {
   var settings = {
     dots: true,
     infinite: true,
