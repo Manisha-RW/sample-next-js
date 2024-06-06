@@ -1,21 +1,25 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { NavbarDocumentData, Simplify } from "../../prismicio-types";
 import { PrismicDocumentWithoutUID } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { SliceZone } from "@prismicio/react";
+// import { components } from "../../slices";
+import DropdownItems from "../../slices/DropdownItems";
 
 interface Props {
   navbar: PrismicDocumentWithoutUID<Simplify<NavbarDocumentData>>;
 }
 
-export default function Navbar ({ navbar }: Props) {
+const components = {
+  dropdown_items: DropdownItems,
+};
+
+export default function Navbar({ navbar }: Props) {
   const { data } = navbar;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuButtonClicked, setIsMenuButtonClicked] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [dropdownItems, setDropdownItems] = useState([]);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const toggleMenu = () => {
@@ -23,26 +27,13 @@ export default function Navbar ({ navbar }: Props) {
     setIsMenuButtonClicked(true);
   };
 
-  const toggleDropdown = (dropdown) => {
-    setIsDropdownOpen(dropdown === isDropdownOpen ? null : dropdown);
-  };
-
   const closeMenu = () => {
     setIsMenuOpen(false);
-    setIsDropdownOpen(false);
   };
 
   const handleResize = () => {
     setIsSmallScreen(window.innerWidth < 1024);
   };
-
-  // useEffect(() => {
-  //   if (isDropdownOpen) {
-  //     setDropdownItems(
-  //       data.links.find((menu) => menu.label === isDropdownOpen).dropdown
-  //     );
-  //   }
-  // }, [isDropdownOpen]);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -51,13 +42,11 @@ export default function Navbar ({ navbar }: Props) {
   }, []);
 
   return (
-
     <div>
       <nav className="p-4 absolute w-full z-20 bg-transparent">
         <div className="container mx-auto mt-20 flex justify-between items-center">
           <div className="flex items-center justify-between w-full lg:w-auto">
             <div className="text-white font-medium text-3xl mb-4 lg:mb-0">
-          
               <PrismicNextImage alt="" field={data.logoImg} />
             </div>
             <div className="lg:hidden">
@@ -103,9 +92,7 @@ export default function Navbar ({ navbar }: Props) {
             <div className="flex flex-col lg:flex-row lg:space-x-4 items-center mt-4 lg:mt-0 w-full lg:w-auto">
               <div className="lg:hidden w-full flex justify-between items-center px-4 mt-4">
                 <div className="text-white font-bold text-3xl mb-4 lg:mb-0">
-                 
                   <PrismicNextImage alt="" field={data.logoImg} />
-
                 </div>
                 <button
                   onClick={closeMenu}
@@ -128,67 +115,39 @@ export default function Navbar ({ navbar }: Props) {
                 </button>
               </div>
 
-              {data.links.map((item, index) => (
-                <PrismicNextLink className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap mb-4 lg:mb-0" key={index} field={item.link}>{item.label}</PrismicNextLink>
-              ))}
-
-              {/* {slice.primary.links.map((item, index) => (
-              <React.Fragment key={menu.label}>
-                {menu.dropdown ? (
-                  <div className="relative mb-4 lg:mb-0">
-                    <button
-                      onClick={() => toggleDropdown(menu.label)}
-                      className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap"
+              {/* Dropdown Navbar fields */}
+              {navbar.data.isDropdown ? (
+                <>
+                  {data.links.map((item: any, index: number) => (
+                    <PrismicNextLink
+                      className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap mb-4 lg:mb-0"
+                      key={index}
+                      field={item.link}
                     >
-                      {menu.label}
-                      <svg
-                        className="h-4 w-4 inline ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
-                    {isDropdownOpen === menu.label && (
-                      <div className="absolute bg-white top-full left-0 mt-2 py-2 rounded-lg shadow-kg">
-                        {dropdownItems.map((dropDown) => (
-                          <Link
-                            key={dropDown?.label}
-                            href={dropDown?.link}
-                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                            onClick={closeMenu}
-                          >
-                            {dropDown?.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    href={menu?.link}
-                    className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap mb-4 lg:mb-0"
-                    onClick={closeMenu}
-                  >
-                    {menu?.label}
-                  </Link>
-                )}
-              </React.Fragment>
-            ))} */}
-              <div className="w-full flex justify-center lg:justify-start mb-4 lg:mb-0">
-                <button
-                  className={`bg-default-blue text-white font-Raleway text-base rounded w-[148px] h-[52px] ${
-                    isMenuOpen || isSmallScreen
-                      ? "mt-36"
-                      : "mt-4 lg:mt-0 lg:ml-auto lg:order-last"
-                  }`}
-                >
+                      {item.label}
+                    </PrismicNextLink>
+                  ))}
+                  <SliceZone
+                    slices={navbar.data.slices}
+                    components={components}
+                  />
+                </>
+              ) : (
+                <>
+                  {/* Other Navbar fields */}
+                  {data.links.map((item: any, index: number) => (
+                    <PrismicNextLink
+                      className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap mb-4 lg:mb-0"
+                      key={index}
+                      field={item.link}
+                    >
+                      {item.label}
+                    </PrismicNextLink>
+                  ))}
+                </>
+              )}
+              <div className="w-full flex justify-center lg:justify-start  mb-4 lg:mb-0">
+                <button className="bg-default-blue text-white font-Raleway lg:mt-0 vsm:mt-36 text-base rounded w-[148px] h-[52px]">
                   Contact Us
                 </button>
               </div>
@@ -198,8 +157,4 @@ export default function Navbar ({ navbar }: Props) {
       </nav>
     </div>
   );
-};
-
-
-
-
+}
