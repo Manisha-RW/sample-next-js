@@ -21,8 +21,8 @@ interface Props {
 
 export default function LinkSection({ slice }: Props) {
   return (
-    <div className="lg:mx-auto text-center sm:text-left text-white">
-      <h4 className="text-base font-semibold font-raleway mb-7">
+    <div className="lg:mx-auto text-left text-white">
+      <h4 className="text-base mb-5 font-semibold font-raleway mb-7">
         {slice.primary.heading}
       </h4>
       <ul>
