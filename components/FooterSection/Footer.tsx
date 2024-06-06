@@ -26,7 +26,7 @@ export default function Footer({ footer }: Props) {
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8 py-14 max-w-xs mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-full">
           <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
             <PrismicNextLink field={data.logoLink}>
-              <PrismicNextImage field={data.logoImage} />
+              <PrismicNextImage alt="" field={data.logoImage} />
             </PrismicNextLink>
             <div className="py-4 text-sm text-white lg:max-w-[266px] lg:max-h-[101px] text-center lg:text-left">
               <h4 className="font-raleway font-semibold text-xl">
@@ -44,7 +44,7 @@ export default function Footer({ footer }: Props) {
             <div className="flex mt-4 py-8 space-x-4 justify-center lg:justify-start sm:mt-0 ">
               {data.socialData.map((item, index) => (
                 <PrismicNextLink key={index} field={item.socialLink}>
-                  <PrismicNextImage field={item.socialmage} />
+                  <PrismicNextImage alt="" field={item.socialmage} />
                 </PrismicNextLink>
               ))}
             </div>
