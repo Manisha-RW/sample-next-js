@@ -1,13 +1,26 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { NavbarDocumentData, Simplify } from "../../prismicio-types";
+import { PrismicDocumentWithoutUID } from "@prismicio/client";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { SliceZone } from "@prismicio/react";
+import DropdownItems from "../../slices/Menus"; // Ensure the correct import path
+import Menus from "../../slices/Menus"; // Ensure the correct import path
 
-const Navbar = ({ props }) => {
+interface Props {
+  navbar: PrismicDocumentWithoutUID<Simplify<NavbarDocumentData>>;
+}
+
+const components = {
+  dropdown_items: DropdownItems,
+  menus: Menus, // Register the Menus component
+};
+
+export default function Navbar({ navbar }: Props) {
+  const { data } = navbar;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuButtonClicked, setIsMenuButtonClicked] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [dropdownItems, setDropdownItems] = useState([]);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const toggleMenu = () => {
@@ -15,26 +28,13 @@ const Navbar = ({ props }) => {
     setIsMenuButtonClicked(true);
   };
 
-  const toggleDropdown = (dropdown) => {
-    setIsDropdownOpen(dropdown === isDropdownOpen ? null : dropdown);
-  };
-
   const closeMenu = () => {
     setIsMenuOpen(false);
-    setIsDropdownOpen(false);
   };
 
   const handleResize = () => {
     setIsSmallScreen(window.innerWidth < 1024);
   };
-
-  useEffect(() => {
-    if (isDropdownOpen) {
-      setDropdownItems(
-        data.links.find((menu) => menu.label === isDropdownOpen).dropdown
-      );
-    }
-  }, [isDropdownOpen]);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -45,10 +45,10 @@ const Navbar = ({ props }) => {
   return (
     <div>
       <nav className="p-4 absolute w-full z-20 bg-transparent">
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="container mx-auto mt-20 flex justify-between items-center">
           <div className="flex items-center justify-between w-full lg:w-auto">
             <div className="text-white font-medium text-3xl mb-4 lg:mb-0">
-              <img src={props?.logoImg} alt="Logo" />
+              <PrismicNextImage alt="" field={data.logoImg} />
             </div>
             <div className="lg:hidden">
               <button
@@ -83,13 +83,17 @@ const Navbar = ({ props }) => {
           </div>
           <div
             className={`${
-              isMenuButtonClicked ? (isMenuOpen ? "translate-x-0" : "-translate-x-full") : "hidden"
+              isMenuButtonClicked
+                ? isMenuOpen
+                  ? "translate-x-0"
+                  : "-translate-x-full"
+                : "hidden"
             } lg:translate-x-0 lg:flex flex-col lg:flex-row lg:space-x-4 lg:mt-0 fixed top-0 left-0 h-full w-3/4 lg:w-auto bg-black lg:bg-transparent transition-transform lg:relative`}
           >
             <div className="flex flex-col lg:flex-row lg:space-x-4 items-center mt-4 lg:mt-0 w-full lg:w-auto">
               <div className="lg:hidden w-full flex justify-between items-center px-4 mt-4">
                 <div className="text-white font-bold text-3xl mb-4 lg:mb-0">
-                  <img src={props?.logoImg} alt="Logo" />
+                  <PrismicNextImage alt="" field={data.logoImg} />
                 </div>
                 <button
                   onClick={closeMenu}
@@ -112,61 +116,9 @@ const Navbar = ({ props }) => {
                 </button>
               </div>
 
-              {props?.links?.map((menu, index) => (
-                <React.Fragment key={menu.label}>
-                  {menu.dropdown ? (
-                    <div className="relative mb-4 lg:mb-0">
-                      <button
-                        onClick={() => toggleDropdown(menu.label)}
-                        className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap"
-                      >
-                        {menu.label}
-                        <svg
-                          className="h-4 w-4 inline ml-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </button>
-                      {isDropdownOpen === menu.label && (
-                        <div className="absolute bg-white top-full left-0 mt-2 py-2 rounded-lg shadow-kg">
-                          {dropdownItems.map((dropDown) => (
-                            <Link
-                              key={dropDown?.label}
-                              href={dropDown?.link}
-                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                              onClick={closeMenu}
-                            >
-                              {dropDown?.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      href={menu?.link}
-                      className="text-white font-Raleway text-base px-4 py-2 whitespace-nowrap mb-4 lg:mb-0"
-                      onClick={closeMenu}
-                    >
-                      {menu?.label}
-                    </Link>
-                  )}
-                </React.Fragment>
-              ))}
-              <div className="w-full flex justify-center lg:justify-start mb-4 lg:mb-0">
-                <button
-                  className={`bg-default-blue text-white font-Raleway text-base rounded w-[148px] h-[52px] ${
-                    (isMenuOpen || isSmallScreen) ? "mt-36" : "mt-4 lg:mt-0 lg:ml-auto lg:order-last"
-                  }`}
-                >
+              <SliceZone slices={navbar.data.slices} components={components} />
+              <div className="w-full flex justify-center lg:justify-start  mb-4 lg:mb-0">
+                <button className="bg-default-blue text-white font-Raleway lg:mt-0 vsm:mt-36 text-base rounded w-[148px] h-[52px]">
                   Contact Us
                 </button>
               </div>
@@ -176,11 +128,4 @@ const Navbar = ({ props }) => {
       </nav>
     </div>
   );
-};
-
-export default Navbar;
-
-
-
-
-
+}
