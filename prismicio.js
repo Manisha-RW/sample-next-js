@@ -17,15 +17,16 @@ export const repositoryName =
  */
 // TODO: Update the routes array to match your project's route structure.
 const routes = [
+ 
   {
-    type: 'homepage',
-    path: '/',
+  	type: "homepage",
+  	path: "/",
   },
   {
-    type: 'page',
-    path: '/:uid',
+  	type: "page",
+  	path: "/:uid",
   },
-]
+];
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to
@@ -36,14 +37,16 @@ const routes = [
 export const createClient = (config = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
-   fetchOptions:
-     process.env.NODE_ENV === 'production'
-       ? { next: { tags: ['prismic'] }, cache: 'force-cache' }
-       : { next: { revalidate: 5 } },
-      ...config,
+    fetchOptions:
+      process.env.NODE_ENV === "production"
+        ? { next: { tags: ["prismic"] }, cache: "force-cache" }
+        : { next: { revalidate: 5 } },
+    ...config,
   });
 
-  prismicNext.enableAutoPreviews({ client })
+  prismicNext.enableAutoPreviews({
+    client,
+  });
 
-  return client
-}
+  return client;
+};

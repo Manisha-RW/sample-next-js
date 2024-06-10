@@ -1,0 +1,62 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title1": {
+				"__TYPE__": "FieldContent",
+				"value": "dropped",
+				"type": "Text"
+			},
+			"title2": {
+				"__TYPE__": "FieldContent",
+				"value": "care",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ex in amet aute deserunt. Excepteur nisi ullamco pariatur. Veniam proident laborum ipsum veniam mollit do mollit amet aute laborum."
+						}
+					}
+				]
+			},
+			"faqs": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "street",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ipsum fugiat ea quis duis reprehenderit. Non ex eiusmod eiusmod aute culpa sunt eiusmod eu sint sint aute aute."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
