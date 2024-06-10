@@ -10,13 +10,20 @@ export default function Menus({ slice }: MenusProps) {
 
   const hasChildMenus = slice.primary.childmenus && slice.primary.childmenus.length > 0;
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const openDropdown = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
   };
 
   return (
     <div className="relative mb-4 lg:mb-0" style={{ whiteSpace: "nowrap" }}>
-      <li className="text-white gap-3 font-Raleway text-base px-4 py-2 whitespace-nowrap flex items-center">
+      
+      <li className="text-white gap-3 font-Raleway text-base px-4 py-2 whitespace-nowrap flex items-center"
+          onMouseEnter={openDropdown}
+          onMouseLeave={closeDropdown}>
         <PrismicNextLink field={slice.primary.menulink}>
           {slice.primary.menulabel}
         </PrismicNextLink>
@@ -27,7 +34,6 @@ export default function Menus({ slice }: MenusProps) {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            onClick={toggleDropdown}
             role="button"
           >
             <path
@@ -41,7 +47,9 @@ export default function Menus({ slice }: MenusProps) {
       </li>
 
       {hasChildMenus && isDropdownOpen && (
-        <div className="absolute bg-white top-full left-0 mt-2 py-2 rounded-lg shadow-lg">
+        <div className="absolute bg-white top-full left-0 mt-2 py-2 rounded-lg shadow-lg"
+             onMouseEnter={openDropdown}
+             onMouseLeave={closeDropdown}>
           {slice.primary.childmenus.map((item:any, index:any) => (
             <PrismicNextLink
               key={index}
