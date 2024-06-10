@@ -115,10 +115,9 @@ export default function Navbar({ navbar }: Props) {
                   </svg>
                 </button>
               </div>
-
               <SliceZone slices={navbar.data.slices} components={components} />
               <div className="w-full flex justify-center lg:justify-start  mb-4 lg:mb-0">
-                <button className="bg-default-blue text-white font-Raleway lg:mt-0 vsm:mt-36 text-base rounded w-[148px] h-[52px]">
+                <button className="bg-default-blue ml-5 text-white font-Raleway lg:mt-0 vsm:mt-36 text-base rounded w-[148px] h-[52px]">
                   Contact Us
                 </button>
               </div>

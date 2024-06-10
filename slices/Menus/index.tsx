@@ -1,4 +1,3 @@
-"use client"
 import { Content, KeyTextField, LinkField } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
@@ -12,13 +11,11 @@ export default function Menus({ slice }: MenusProps) {
   const hasChildMenus = slice.primary.childmenus && slice.primary.childmenus.length > 0;
 
   const toggleDropdown = () => {
-
     setIsDropdownOpen(!isDropdownOpen);
-    console.log(isDropdownOpen)
   };
 
   return (
-    <div className="relative mb-4 lg:mb-0">
+    <div className="relative mb-4 lg:mb-0" style={{ whiteSpace: "nowrap" }}>
       <li className="text-white gap-3 font-Raleway text-base px-4 py-2 whitespace-nowrap flex items-center">
         <PrismicNextLink field={slice.primary.menulink}>
           {slice.primary.menulabel}
