@@ -3,7 +3,7 @@
  * @typedef {import("@prismicio/react").SliceComponentProps<LinkSectionSlice>} LinkSectionProps
  * @param {LinkSectionProps}
  */
-"use client";
+// "use client";
 import { KeyTextField, LinkField } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 
