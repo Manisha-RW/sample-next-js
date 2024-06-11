@@ -28,7 +28,7 @@ const routes = [
   },
   {
     type: "blogPost",
-    path: "/:uid",
+    path: "/blogs/:uid",
   },
 ];
 
