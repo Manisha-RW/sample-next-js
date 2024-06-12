@@ -15,15 +15,17 @@ export default async function BlogsPage() {
     }
 
     return (
-      <div>
+      <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
         <h1>All Blog Posts</h1>
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
           {response.map((blogPost) => (
-            <BlogPost key={blogPost.id} slice={{ primary: {
-              blogImg: blogPost.data.featuredImg,
-              blogTitle: blogPost.data.title,
-              blogDesc: blogPost.data.shortDesc
-            }}} />
+            <BlogPost key={blogPost.id} slice={{
+              primary: {
+                blogImg: blogPost.data.featuredImg,
+                blogTitle: blogPost.data.title,
+                blogDesc: blogPost.data.shortDesc
+              }
+            }} />
           ))}
         </div>
         <Pagination />
