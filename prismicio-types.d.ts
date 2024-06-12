@@ -22,6 +22,17 @@ interface BlogPostDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Short Description field in *Blog Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.shortDesc
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  shortDesc: prismic.RichTextField;
+
+  /**
    * Author field in *Blog Post*
    *
    * - **Field Type**: Text
@@ -368,7 +379,7 @@ export type NavbarDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = never;
+type PageDocumentDataSlicesSlice = BlogPostSlice;
 
 /**
  * Content for Page documents
@@ -435,6 +446,71 @@ export type AllDocumentTypes =
   | HomepageDocument
   | NavbarDocument
   | PageDocument;
+
+/**
+ * Primary content in *BlogPost → Default → Primary*
+ */
+export interface BlogPostSliceDefaultPrimary {
+  /**
+   * Blog Image field in *BlogPost → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.default.primary.blogImg
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  blogImg: prismic.ImageField<never>;
+
+  /**
+   * Blog Title field in *BlogPost → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.default.primary.blogTitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  blogTitle: prismic.KeyTextField;
+
+  /**
+   * Blog Description field in *BlogPost → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.default.primary.blogDesc
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  blogDesc: prismic.RichTextField;
+}
+
+/**
+ * Default variation for BlogPost Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogPostSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogPostSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogPost*
+ */
+type BlogPostSliceVariation = BlogPostSliceDefault;
+
+/**
+ * BlogPost Shared Slice
+ *
+ * - **API ID**: `blog_post`
+ * - **Description**: BlogPost
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogPostSlice = prismic.SharedSlice<
+  "blog_post",
+  BlogPostSliceVariation
+>;
 
 /**
  * Item in *Brands → Default → Primary → Brand Images*
@@ -1498,6 +1574,10 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BlogPostSlice,
+      BlogPostSliceDefaultPrimary,
+      BlogPostSliceVariation,
+      BlogPostSliceDefault,
       BrandsSlice,
       BrandsSliceDefaultPrimaryBrandImagesItem,
       BrandsSliceDefaultPrimary,

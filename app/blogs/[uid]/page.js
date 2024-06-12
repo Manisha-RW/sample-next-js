@@ -17,6 +17,7 @@ export default async function BlogPostPage({ params }) {
     return (
       <div>
         <h1>{blogPost.data.title}</h1>
+        <PrismicRichText field={data.shortDesc} />
         <p>By {blogPost.data.author}</p>
         <p>{new Date(blogPost.data.publishDate).toLocaleDateString()}</p>
         <img src={blogPost.data.featuredImg.url} alt={blogPost.data.featuredImg.alt} />
