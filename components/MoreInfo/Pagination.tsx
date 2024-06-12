@@ -17,13 +17,13 @@ const Pagination = () => {
 
     <a className="rounded-lg border border-teal-500 bg-teal-500 px-4 py-2 text-white" href="/blog-1">1</a>
     
-    <a className="rounded-lg border border-teal-500 px-4 py-2 text-gray-700" href="/blog-2">2
+    <a className="rounded-lg border border-teal-500 px-4 py-2 text-gray-700" href="/blogs/blog-2">2
     </a>
 
-    <a className="rounded-lg border border-teal-500 px-4 py-2 text-gray-700" href="/blog-3">3
+    <a className="rounded-lg border border-teal-500 px-4 py-2 text-gray-700" href="/blogs/blog-3">3
     </a>
     
-    <a className="rounded-lg border border-teal-500 px-2 py-2 text-gray-700" href="/blog-2">
+    <a className="rounded-lg border border-teal-500 px-2 py-2 text-gray-700" href="/blogs/blog-2">
         <span className="sr-only">Next</span>
         <svg className="mt-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
             aria-hidden="true">

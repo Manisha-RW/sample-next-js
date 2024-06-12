@@ -21,7 +21,7 @@ interface Props {
   slice: {
     primary: {
       blogImg: ImageFieldImage;
-      blogTitle: string; 
+      blogTitle: string;
       blogDesc: RichTextField;
     };
   };
@@ -30,6 +30,7 @@ export default function BlogPost({ slice }: Props) {
   return (
     <div className="border-r border-b border-l border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
       <PrismicNextImage
+        alt=""
         className="w-full mb-3"
         field={slice?.primary?.blogImg as ImageFieldImage}
       />
