@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { SliceZone } from '@prismicio/react';
 import { createClient } from '../../../prismicio';
 import { components } from '../../../slices';
+import { PrismicRichText } from "@prismicio/react";
 
 export default async function BlogPostPage({ params }) {
   const { uid } = params;
