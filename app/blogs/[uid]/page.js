@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import { SliceZone } from '@prismicio/react';
 import { createClient } from '../../../prismicio';
 import { components } from '../../../slices';
-import { PrismicRichText } from "@prismicio/react";
 
 export default async function BlogPostPage({ params }) {
   const { uid } = params;
@@ -17,8 +16,7 @@ export default async function BlogPostPage({ params }) {
 
     return (
       <div>
-        <h1>{blogPost.data.title}</h1>
-        <PrismicRichText field={data.shortDesc} />
+        <h1>{blogPost.data.title}</h1>       
         <p>By {blogPost.data.author}</p>
         <p>{new Date(blogPost.data.publishDate).toLocaleDateString()}</p>
         <img src={blogPost.data.featuredImg.url} alt={blogPost.data.featuredImg.alt} />
