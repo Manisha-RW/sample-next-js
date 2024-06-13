@@ -55,6 +55,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "brands": {
+              "type": "SharedSlice"
+            },
             "image_content_with_column": {
               "type": "SharedSlice"
             }

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Pagination = ({ currentPage, totalPages }) => {
   return (
-    <nav className="mb-4 flex justify-center space-x-4" aria-label="Pagination">
+    <nav className="mb-4 flex mt-10 justify-center space-x-4" aria-label="Pagination">
       {currentPage > 1 && (
         <Link legacyBehavior href={`/blogs/page/${currentPage - 1}`} passHref>
           <a className="rounded-lg border border-teal-500 px-2 py-2 text-gray-700">

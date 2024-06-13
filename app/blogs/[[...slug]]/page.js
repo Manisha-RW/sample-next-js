@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import BlogPost from '../../../slices/BlogPost';
 import Pagination from '../../../components/MoreInfo/Pagination';
 
-const POSTS_PER_PAGE = 2;
+const POSTS_PER_PAGE = 8;
 
 export default async function BlogsPage({ params }) {
   const slug = params.slug || [];
