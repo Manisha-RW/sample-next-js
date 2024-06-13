@@ -1,4 +1,3 @@
-// app/blogs/[[...slug]]/page.js
 import React from 'react';
 import { createClient } from '../../../prismicio';
 import { notFound } from 'next/navigation';
@@ -10,6 +9,12 @@ const POSTS_PER_PAGE = 2;
 export default async function BlogsPage({ params }) {
   const slug = params.slug || [];
   const currentPage = slug.length > 1 ? parseInt(slug[1], 10) : 1;
+
+  // Check if currentPage is a valid number
+  if (isNaN(currentPage)) {
+    return notFound();
+  }
+
   const client = createClient();
 
   try {
