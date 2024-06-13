@@ -1,41 +1,51 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
-const Pagination = () => {
+const Pagination = ({ currentPage, totalPages }) => {
   return (
     <nav className="mb-4 flex justify-center space-x-4" aria-label="Pagination">
-
-    <span className="rounded-lg border border-teal-500 px-2 py-2 text-gray-700">
-        <span className="sr-only">Previous</span>
-        <svg className="mt-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-            aria-hidden="true">
-            <path fillRule="evenodd"
+      {currentPage > 1 && (
+        <Link legacyBehavior href={`/blogs/page/${currentPage - 1}`} passHref>
+          <a className="rounded-lg border border-teal-500 px-2 py-2 text-gray-700">
+            <span className="sr-only">Previous</span>
+            <svg className="mt-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+              aria-hidden="true">
+              <path fillRule="evenodd"
                 d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
                 clipRule="evenodd">
-            </path>
-        </svg>
-    </span>
+              </path>
+            </svg>
+          </a>
+        </Link>
+      )}
 
-    <a className="rounded-lg border border-teal-500 bg-teal-500 px-4 py-2 text-white" href="/blog-1">1</a>
-    
-    <a className="rounded-lg border border-teal-500 px-4 py-2 text-gray-700" href="/blogs/blog-2">2
-    </a>
+      {[...Array(totalPages)].map((_, index) => {
+        const page = index + 1;
+        return (
+          <Link legacyBehavior key={page} href={`/blogs/page/${page}`} passHref>
+            <a className={`rounded-lg border px-4 py-2 ${currentPage === page ? 'bg-teal-500 text-white' : 'border-teal-500 text-gray-700'}`}>
+              {page}
+            </a>
+          </Link>
+        );
+      })}
 
-    <a className="rounded-lg border border-teal-500 px-4 py-2 text-gray-700" href="/blogs/blog-3">3
-    </a>
-    
-    <a className="rounded-lg border border-teal-500 px-2 py-2 text-gray-700" href="/blogs/blog-2">
-        <span className="sr-only">Next</span>
-        <svg className="mt-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-            aria-hidden="true">
-            <path fillRule="evenodd"
+      {currentPage < totalPages && (
+        <Link legacyBehavior href={`/blogs/page/${currentPage + 1}`} passHref>
+          <a className="rounded-lg border border-teal-500 px-2 py-2 text-gray-700">
+            <span className="sr-only">Next</span>
+            <svg className="mt-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+              aria-hidden="true">
+              <path fillRule="evenodd"
                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                 clipRule="evenodd">
-            </path>
-        </svg>
-    </a>
-
-</nav>
-  )
+              </path>
+            </svg>
+          </a>
+        </Link>
+      )}
+    </nav>
+  );
 }
 
-export default Pagination
+export default Pagination;
