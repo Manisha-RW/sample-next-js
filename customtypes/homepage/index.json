@@ -14,9 +14,6 @@
             "project": {
               "type": "SharedSlice"
             },
-            "top_navbar": {
-              "type": "SharedSlice"
-            },
             "statistics": {
               "type": "SharedSlice"
             },

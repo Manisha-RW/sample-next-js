@@ -14,5 +14,4 @@ export const components = {
   menus: dynamic(() => import("./Menus")),
   project: dynamic(() => import("./Project")),
   statistics: dynamic(() => import("./Statistics")),
-  top_navbar: dynamic(() => import("./TopNavbar")),
 };

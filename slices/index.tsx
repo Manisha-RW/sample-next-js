@@ -12,5 +12,4 @@ export const components = {
   link_section: dynamic(() => import("./LinkSection")),
   project: dynamic(() => import("./Project")),
   statistics: dynamic(() => import("./Statistics")),
-  top_navbar: dynamic(() => import("./TopNavbar")),
 };

@@ -264,7 +264,6 @@ export type FooterDocument<Lang extends string = string> =
 
 type HomepageDocumentDataSlicesSlice =
   | ProjectSlice
-  | TopNavbarSlice
   | StatisticsSlice
   | ClientsSlice
   | BrandsSlice
@@ -442,12 +441,70 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+/**
+ * Item in *TopNavbar → Navbar Data*
+ */
+export interface TopNavbarDocumentDataNavDataItem {
+  /**
+   * Label field in *TopNavbar → Navbar Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topNavbar.navData[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *TopNavbar → Navbar Data*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topNavbar.navData[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Content for TopNavbar documents
+ */
+interface TopNavbarDocumentData {
+  /**
+   * Navbar Data field in *TopNavbar*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topNavbar.navData[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  navData: prismic.GroupField<Simplify<TopNavbarDocumentDataNavDataItem>>;
+}
+
+/**
+ * TopNavbar document from Prismic
+ *
+ * - **API ID**: `topNavbar`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TopNavbarDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<TopNavbarDocumentData>,
+    "topNavbar",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | BlogPostDocument
   | FooterDocument
   | HomepageDocument
   | NavbarDocument
-  | PageDocument;
+  | PageDocument
+  | TopNavbarDocument;
 
 /**
  * Primary content in *BlogPost → Default → Primary*
@@ -1477,78 +1534,6 @@ export type StatisticsSlice = prismic.SharedSlice<
   StatisticsSliceVariation
 >;
 
-/**
- * Item in *TopNavbar → Default → Primary → Navbar Data*
- */
-export interface TopNavbarSliceDefaultPrimaryNavDataItem {
-  /**
-   * Label field in *TopNavbar → Default → Primary → Navbar Data*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top_navbar.default.primary.navData[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-
-  /**
-   * Link field in *TopNavbar → Default → Primary → Navbar Data*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top_navbar.default.primary.navData[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-/**
- * Primary content in *TopNavbar → Default → Primary*
- */
-export interface TopNavbarSliceDefaultPrimary {
-  /**
-   * Navbar Data field in *TopNavbar → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top_navbar.default.primary.navData[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  navData: prismic.GroupField<
-    Simplify<TopNavbarSliceDefaultPrimaryNavDataItem>
-  >;
-}
-
-/**
- * Default variation for TopNavbar Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TopNavbarSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<TopNavbarSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *TopNavbar*
- */
-type TopNavbarSliceVariation = TopNavbarSliceDefault;
-
-/**
- * TopNavbar Shared Slice
- *
- * - **API ID**: `top_navbar`
- * - **Description**: TopNavbar
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TopNavbarSlice = prismic.SharedSlice<
-  "top_navbar",
-  TopNavbarSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1575,6 +1560,9 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      TopNavbarDocument,
+      TopNavbarDocumentData,
+      TopNavbarDocumentDataNavDataItem,
       AllDocumentTypes,
       BlogPostSlice,
       BlogPostSliceDefaultPrimary,
@@ -1628,11 +1616,6 @@ declare module "@prismicio/client" {
       StatisticsSliceDefaultPrimary,
       StatisticsSliceVariation,
       StatisticsSliceDefault,
-      TopNavbarSlice,
-      TopNavbarSliceDefaultPrimaryNavDataItem,
-      TopNavbarSliceDefaultPrimary,
-      TopNavbarSliceVariation,
-      TopNavbarSliceDefault,
     };
   }
 }
