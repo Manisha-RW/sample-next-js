@@ -18,6 +18,7 @@ export type BlogPostProps = SliceComponentProps<Content.BlogPostSlice>;
  */
 
 interface Props {
+  uid: string;
   slice: {
     primary: {
       blogImg: ImageFieldImage;
@@ -26,7 +27,7 @@ interface Props {
     };
   };
 }
-export default function BlogPost({ slice }: Props) {
+export default function BlogPost({ slice, uid }: Props) {
   return (
     <div className="border-r border-b border-l border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
       <PrismicNextImage
@@ -37,7 +38,7 @@ export default function BlogPost({ slice }: Props) {
       <div className="p-4 pt-2">
         <div className="mb-4">
           <a
-            href="#"
+            href={`/blogs/${uid}`}
             className="text-gray-900 font-bold text-xl mb-2 hover:text-indigo-600 inline-block"
           >
             {slice?.primary?.blogTitle}
