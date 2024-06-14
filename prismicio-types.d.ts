@@ -263,6 +263,7 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | BannerSlice
   | ProjectSlice
   | StatisticsSlice
   | ClientsSlice
@@ -380,7 +381,7 @@ export type NavbarDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = BlogPostSlice;
+type PageDocumentDataSlicesSlice = BannerSlice | BlogPostSlice;
 
 /**
  * Content for Page documents
@@ -505,6 +506,103 @@ export type AllDocumentTypes =
   | NavbarDocument
   | PageDocument
   | TopNavbarDocument;
+
+/**
+ * Item in *Banner → Default → Primary → Buttons*
+ */
+export interface BannerSliceDefaultPrimaryButtonsItem {
+  /**
+   * Button Label field in *Banner → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.buttons[].buttonLabel
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  buttonLabel: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Banner → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.buttons[].buttonLink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  buttonLink: prismic.LinkField;
+}
+
+/**
+ * Primary content in *Banner → Default → Primary*
+ */
+export interface BannerSliceDefaultPrimary {
+  /**
+   * Title field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Sub Title field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.subTitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subTitle: prismic.KeyTextField;
+
+  /**
+   * Buttons field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  buttons: prismic.GroupField<Simplify<BannerSliceDefaultPrimaryButtonsItem>>;
+
+  /**
+   * Banner Image field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.bannerImg
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bannerImg: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Banner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Banner*
+ */
+type BannerSliceVariation = BannerSliceDefault;
+
+/**
+ * Banner Shared Slice
+ *
+ * - **API ID**: `banner`
+ * - **Description**: Banner
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
 
 /**
  * Primary content in *BlogPost → Default → Primary*
@@ -1564,6 +1662,11 @@ declare module "@prismicio/client" {
       TopNavbarDocumentData,
       TopNavbarDocumentDataNavDataItem,
       AllDocumentTypes,
+      BannerSlice,
+      BannerSliceDefaultPrimaryButtonsItem,
+      BannerSliceDefaultPrimary,
+      BannerSliceVariation,
+      BannerSliceDefault,
       BlogPostSlice,
       BlogPostSliceDefaultPrimary,
       BlogPostSliceVariation,
