@@ -6,7 +6,7 @@ const Pagination = ({ currentPage, totalPages }) => {
     <nav className="mb-4 flex mt-10 justify-center space-x-4" aria-label="Pagination">
       {currentPage > 1 && (
         <Link legacyBehavior href={`/blogs/page/${currentPage - 1}`} passHref>
-          <a className="rounded-lg border border-teal-500 px-2 py-2 text-gray-700">
+          <a className="rounded-lg border border-default-blue px-2 py-2 text-gray-700">
             <span className="sr-only">Previous</span>
             <svg className="mt-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
               aria-hidden="true">
@@ -23,7 +23,7 @@ const Pagination = ({ currentPage, totalPages }) => {
         const page = index + 1;
         return (
           <Link legacyBehavior key={page} href={`/blogs/page/${page}`} passHref>
-            <a className={`rounded-lg border px-4 py-2 ${currentPage === page ? 'bg-teal-500 text-white' : 'border-teal-500 text-gray-700'}`}>
+            <a className={`rounded-lg border px-4 py-2 ${currentPage === page ? 'bg-default-blue text-white' : 'border-default-blue text-gray-700'}`}>
               {page}
             </a>
           </Link>
@@ -32,7 +32,7 @@ const Pagination = ({ currentPage, totalPages }) => {
 
       {currentPage < totalPages && (
         <Link legacyBehavior href={`/blogs/page/${currentPage + 1}`} passHref>
-          <a className="rounded-lg border border-teal-500 px-2 py-2 text-gray-700">
+          <a className="rounded-lg border border-default-blue px-2 py-2 text-gray-700">
             <span className="sr-only">Next</span>
             <svg className="mt-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
               aria-hidden="true">
