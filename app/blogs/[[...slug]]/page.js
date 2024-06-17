@@ -3,8 +3,11 @@ import { createClient } from '../../../prismicio';
 import { notFound } from 'next/navigation';
 import BlogPost from '../../../slices/BlogPost';
 import Pagination from '../../../components/MoreInfo/Pagination';
+import Banner from "../../../components/Bnner/Banner"
+// import { components } from "../../../slices";
+// import { SliceZone } from "@prismicio/react";
 
-const POSTS_PER_PAGE = 8;
+const POSTS_PER_PAGE = 6;
 
 export default async function BlogsPage({ params }) {
   const slug = params.slug || [];
@@ -40,11 +43,14 @@ export default async function BlogsPage({ params }) {
     const paginatedPosts = response.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
     return (
+      <div>
+        {/* <SliceZone slices={page.data.slices} components={components} />; */}
+        <Banner/>
       <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-        <h1>All Blog Posts</h1>
+        <h1 className='mb-3 pb-4 text-4xl flex justify-center font-bold text-default-blue  md:text-4xl'>Blog Posts</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
           {paginatedPosts.map((blogPost) => (
-            <BlogPost key={blogPost.id} slice={{
+            <BlogPost key={blogPost.id} uid={blogPost.uid}  slice={{
               primary: {
                 blogImg: blogPost.data.featuredImg,
                 blogTitle: blogPost.data.title,
@@ -54,6 +60,7 @@ export default async function BlogsPage({ params }) {
           ))}
         </div>
         <Pagination currentPage={currentPage} totalPages={totalPages} />
+      </div>
       </div>
     );
   } catch (error) {
