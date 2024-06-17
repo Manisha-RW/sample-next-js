@@ -45,7 +45,7 @@ export default function Navbar({ navbar }: Props) {
   return (
     <div>
       <nav className="p-4 absolute w-full z-20 bg-transparent">
-        <div className="container mx-auto mt-20 flex justify-between items-center">
+        <div className="container mx-auto  flex justify-between items-center">
           <div className="flex items-center justify-between w-full lg:w-auto">
             <div className="text-white font-medium text-3xl mb-4 lg:mb-0">
               <PrismicNextImage alt="" field={data.logoImg} />
