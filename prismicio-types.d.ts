@@ -4,6 +4,128 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type BlogPostDocumentDataSlicesSlice =
+  | BrandsSlice
+  | ImageContentWithColumnSlice;
+
+/**
+ * Content for Blog Post documents
+ */
+interface BlogPostDocumentData {
+  /**
+   * Title field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Short Description field in *Blog Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.shortDesc
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  shortDesc: prismic.RichTextField;
+
+  /**
+   * Author field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author: prismic.KeyTextField;
+
+  /**
+   * Publish Date field in *Blog Post*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.publishDate
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  publishDate: prismic.DateField;
+
+  /**
+   * Featured Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.featuredImg
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featuredImg: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Blog Post*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice> /**
+   * Meta Description field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blogPost.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogPost.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blogPost.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Blog Post document from Prismic
+ *
+ * - **API ID**: `blogPost`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPostDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<BlogPostDocumentData>,
+    "blogPost",
+    Lang
+  >;
+
 /**
  * Item in *Footer → Social Data*
  */
@@ -141,8 +263,8 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | BannerSlice
   | ProjectSlice
-  | TopNavbarSlice
   | StatisticsSlice
   | ClientsSlice
   | BrandsSlice
@@ -259,7 +381,7 @@ export type NavbarDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = never;
+type PageDocumentDataSlicesSlice = BannerSlice | BlogPostSlice;
 
 /**
  * Content for Page documents
@@ -320,11 +442,232 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+/**
+ * Item in *TopNavbar → Navbar Data*
+ */
+export interface TopNavbarDocumentDataNavDataItem {
+  /**
+   * Label field in *TopNavbar → Navbar Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topNavbar.navData[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *TopNavbar → Navbar Data*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topNavbar.navData[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Content for TopNavbar documents
+ */
+interface TopNavbarDocumentData {
+  /**
+   * Navbar Data field in *TopNavbar*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: topNavbar.navData[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  navData: prismic.GroupField<Simplify<TopNavbarDocumentDataNavDataItem>>;
+}
+
+/**
+ * TopNavbar document from Prismic
+ *
+ * - **API ID**: `topNavbar`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TopNavbarDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<TopNavbarDocumentData>,
+    "topNavbar",
+    Lang
+  >;
+
 export type AllDocumentTypes =
+  | BlogPostDocument
   | FooterDocument
   | HomepageDocument
   | NavbarDocument
-  | PageDocument;
+  | PageDocument
+  | TopNavbarDocument;
+
+/**
+ * Item in *Banner → Default → Primary → Buttons*
+ */
+export interface BannerSliceDefaultPrimaryButtonsItem {
+  /**
+   * Button Label field in *Banner → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.buttons[].buttonLabel
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  buttonLabel: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Banner → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.buttons[].buttonLink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  buttonLink: prismic.LinkField;
+}
+
+/**
+ * Primary content in *Banner → Default → Primary*
+ */
+export interface BannerSliceDefaultPrimary {
+  /**
+   * Title field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Sub Title field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.subTitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subTitle: prismic.KeyTextField;
+
+  /**
+   * Buttons field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  buttons: prismic.GroupField<Simplify<BannerSliceDefaultPrimaryButtonsItem>>;
+
+  /**
+   * Banner Image field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.bannerImg
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bannerImg: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Banner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Banner*
+ */
+type BannerSliceVariation = BannerSliceDefault;
+
+/**
+ * Banner Shared Slice
+ *
+ * - **API ID**: `banner`
+ * - **Description**: Banner
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
+
+/**
+ * Primary content in *BlogPost → Default → Primary*
+ */
+export interface BlogPostSliceDefaultPrimary {
+  /**
+   * Blog Image field in *BlogPost → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.default.primary.blogImg
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  blogImg: prismic.ImageField<never>;
+
+  /**
+   * Blog Title field in *BlogPost → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.default.primary.blogTitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  blogTitle: prismic.KeyTextField;
+
+  /**
+   * Blog Description field in *BlogPost → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.default.primary.blogDesc
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  blogDesc: prismic.RichTextField;
+}
+
+/**
+ * Default variation for BlogPost Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogPostSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogPostSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogPost*
+ */
+type BlogPostSliceVariation = BlogPostSliceDefault;
+
+/**
+ * BlogPost Shared Slice
+ *
+ * - **API ID**: `blog_post`
+ * - **Description**: BlogPost
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogPostSlice = prismic.SharedSlice<
+  "blog_post",
+  BlogPostSliceVariation
+>;
 
 /**
  * Item in *Brands → Default → Primary → Brand Images*
@@ -1289,78 +1632,6 @@ export type StatisticsSlice = prismic.SharedSlice<
   StatisticsSliceVariation
 >;
 
-/**
- * Item in *TopNavbar → Default → Primary → Navbar Data*
- */
-export interface TopNavbarSliceDefaultPrimaryNavDataItem {
-  /**
-   * Label field in *TopNavbar → Default → Primary → Navbar Data*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top_navbar.default.primary.navData[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-
-  /**
-   * Link field in *TopNavbar → Default → Primary → Navbar Data*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top_navbar.default.primary.navData[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-/**
- * Primary content in *TopNavbar → Default → Primary*
- */
-export interface TopNavbarSliceDefaultPrimary {
-  /**
-   * Navbar Data field in *TopNavbar → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: top_navbar.default.primary.navData[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  navData: prismic.GroupField<
-    Simplify<TopNavbarSliceDefaultPrimaryNavDataItem>
-  >;
-}
-
-/**
- * Default variation for TopNavbar Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TopNavbarSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<TopNavbarSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *TopNavbar*
- */
-type TopNavbarSliceVariation = TopNavbarSliceDefault;
-
-/**
- * TopNavbar Shared Slice
- *
- * - **API ID**: `top_navbar`
- * - **Description**: TopNavbar
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TopNavbarSlice = prismic.SharedSlice<
-  "top_navbar",
-  TopNavbarSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1371,6 +1642,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogPostDocument,
+      BlogPostDocumentData,
+      BlogPostDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataSocialDataItem,
@@ -1384,7 +1658,19 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      TopNavbarDocument,
+      TopNavbarDocumentData,
+      TopNavbarDocumentDataNavDataItem,
       AllDocumentTypes,
+      BannerSlice,
+      BannerSliceDefaultPrimaryButtonsItem,
+      BannerSliceDefaultPrimary,
+      BannerSliceVariation,
+      BannerSliceDefault,
+      BlogPostSlice,
+      BlogPostSliceDefaultPrimary,
+      BlogPostSliceVariation,
+      BlogPostSliceDefault,
       BrandsSlice,
       BrandsSliceDefaultPrimaryBrandImagesItem,
       BrandsSliceDefaultPrimary,
@@ -1433,11 +1719,6 @@ declare module "@prismicio/client" {
       StatisticsSliceDefaultPrimary,
       StatisticsSliceVariation,
       StatisticsSliceDefault,
-      TopNavbarSlice,
-      TopNavbarSliceDefaultPrimaryNavDataItem,
-      TopNavbarSliceDefaultPrimary,
-      TopNavbarSliceVariation,
-      TopNavbarSliceDefault,
     };
   }
 }

@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/Navbars/Navbar.tsx"  ],
+, "components/Navbars/Navbar.tsx", "app/pages/[uid]/page.js"  ],
   "exclude": [
     "node_modules"
   ]

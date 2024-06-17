@@ -11,10 +11,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "project": {
+            "banner": {
               "type": "SharedSlice"
             },
-            "top_navbar": {
+            "project": {
               "type": "SharedSlice"
             },
             "statistics": {

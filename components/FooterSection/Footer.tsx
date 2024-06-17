@@ -21,7 +21,7 @@ interface Props {
 export default function Footer({ footer }: Props) {
   const { data } = footer;
   return (
-    <footer className="w-full bg-default-blue">
+    <footer className="w-full mt-10 bg-default-blue">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-[30px] lg:grid-cols-6 gap-4 lg:gap-8 py-14 max-w-xs mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-full">
           <div className="col-span-full align-center mb-10 lg:col-span-2 lg:mb-0">

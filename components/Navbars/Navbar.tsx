@@ -5,8 +5,8 @@ import { NavbarDocumentData, Simplify } from "../../prismicio-types";
 import { PrismicDocumentWithoutUID } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { SliceZone } from "@prismicio/react";
-import DropdownItems from "../../slices/Menus"; // Ensure the correct import path
-import Menus from "../../slices/Menus"; // Ensure the correct import path
+import DropdownItems from "../../slices/Menus";
+import Menus from "../../slices/Menus";
 
 interface Props {
   navbar: PrismicDocumentWithoutUID<Simplify<NavbarDocumentData>>;
@@ -14,7 +14,7 @@ interface Props {
 
 const components = {
   dropdown_items: DropdownItems,
-  menus: Menus, // Register the Menus component
+  menus: Menus,
 };
 
 export default function Navbar({ navbar }: Props) {
@@ -45,7 +45,7 @@ export default function Navbar({ navbar }: Props) {
   return (
     <div>
       <nav className="p-4 absolute w-full z-20 bg-transparent">
-        <div className="container mx-auto mt-20 flex justify-between items-center">
+        <div className="container mx-auto  flex justify-between items-center">
           <div className="flex items-center justify-between w-full lg:w-auto">
             <div className="text-white font-medium text-3xl mb-4 lg:mb-0">
               <PrismicNextImage alt="" field={data.logoImg} />
