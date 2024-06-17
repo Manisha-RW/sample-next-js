@@ -30,6 +30,10 @@ interface Props {
 export default function BlogPost({ slice, uid }: Props) {
   return (
     <div className="border-r border-b border-l border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+      <a
+            href={`/blogs/${uid}`}
+            
+          >
       <PrismicNextImage
         alt=""
         className="w-full mb-3"
@@ -45,7 +49,7 @@ export default function BlogPost({ slice, uid }: Props) {
           </a>
           <PrismicRichText field={slice?.primary?.blogDesc} />
         </div>
-      </div>
+      </div></a>
     </div>
   );
 }
