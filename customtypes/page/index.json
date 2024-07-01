@@ -12,15 +12,28 @@
         },
         "type": "UID"
       },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "image_content_with_column": {
+              "type": "SharedSlice"
+            },
+            "whyus": {
+              "type": "SharedSlice"
+            },
             "banner": {
               "type": "SharedSlice"
             },
-            "blog_post": {
+            "cards": {
               "type": "SharedSlice"
             }
           }

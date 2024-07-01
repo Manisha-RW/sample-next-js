@@ -41,20 +41,20 @@ interface Props {
 
 export default function Project({ slice }: Props) {
   return (
-    <div className="mt-[120px] vsm:mt-[50px] lg:mt-20">
-      <div className="lg:max-w-[1300px] container overflow-hidden mx-auto">
+    <div className="mt-[120px] vsm:mx-8 vsm:mt-[50px] lg:mt-20">
+      <div className="lg:max-w-[1300px] overflow-hidden mx-auto">
         <div className="lg:max-w-[1300px] lg:max-h-[783px] bg-light-blue rounded-3xl">
           <div className="relative  px-6 pt-8 pb-20 lg:px-8 lg:pb-28">
             <div className="relative mx-auto max-w-7xl">
               <div className="text-left mt-5">
                 <h2 className="font-raleway font-semibold text-3xl md:text-4xl lg:text-5xl leading-snug text-left mb-6">
-                  {slice.primary.title1}{" "}
+                  {slice?.primary?.title1}{" "}
                   <span className="text-default-blue font-raleway">
-                    {slice.primary.title2}
+                    {slice?.primary?.title2}
                   </span>
                 </h2>
                 <p className="mt-3 lg:w-[453px] h-[48px] text-base font-normal max-w-2xl text-gray-500 sm:mt-4 mb-10">
-                  <PrismicRichText field={slice.primary.description} />
+                  <PrismicRichText field={slice?.primary?.description} />
                 </p>
               </div>
 
@@ -82,7 +82,7 @@ export default function Project({ slice }: Props) {
                     },
                   ]}
                 >
-                  {slice.primary.cardData.map((item, index) => (
+                  {slice?.primary?.cardData?.map((item, index) => (
                     <div
                       key={index}
                       className="flex flex-col w-[362px] pr-5 overflow-hidden"
@@ -91,15 +91,15 @@ export default function Project({ slice }: Props) {
                         <PrismicNextImage
                           alt=""
                           className="h-48 w-full rounded-lg object-cover mb-4"
-                          field={item.cardImage as ImageFieldImage}
+                          field={item?.cardImage as ImageFieldImage}
                         />
                         <div>
                           <Link href="#" className="block mb-2">
                             <p className="text-xl lg:text-2xl font-semibold text-gray-900">
-                              {item.heading}
+                              {item?.heading}
                             </p>
                             <p className="mt-3 font-normal font-Raleway text-base text-gray-600">
-                              <PrismicRichText field={item.description} />
+                              <PrismicRichText field={item?.description} />
                             </p>
                           </Link>
                         </div>
@@ -108,10 +108,10 @@ export default function Project({ slice }: Props) {
                             href="#"
                             className="hover:underline text-indigo-600"
                           >
-                            {item.clientLabel}{" "}
+                            {item?.clientLabel}{" "}
                           </Link>
                           <span className="text-gray-600">
-                            {item.clientName}
+                            {item?.clientName}
                           </span>
                         </p>
                         <div className="grid grid-cols-2 gap-4">
@@ -120,10 +120,10 @@ export default function Project({ slice }: Props) {
                               <PrismicNextImage
                                 alt=""
                                 className="w-6 h-6 mr-2"
-                                field={item.iconImg as ImageFieldImage}
+                                field={item?.iconImg as ImageFieldImage}
                               />
                               <p className="text-base text-gray-900">
-                                {item.title}
+                                {item?.title}
                               </p>
                             </div>
                           ))}

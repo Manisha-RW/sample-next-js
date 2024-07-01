@@ -6,6 +6,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    './slices/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -14,13 +15,6 @@ module.exports = {
       },
       screens: {
         'vsm': '300px' },
-      fontFamily: {
-        // Raleway: ['Raleway', 'sans-serif'],
-        // raleway: ['Raleway'],
-        // 'Raleway': ["Raleway", 'sans-serif'],
-        // 'jakrata': ['Plus Jakarta Sans'],
-        // 'open': ["Open Sans, sans-serif"],
-      },
       fontWeight: {
         semibold: "600",
       },
@@ -39,13 +33,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    // function({ addUtilities }) {
-    //   addUtilities({
-    //     '.heading': {
-    //       '@apply font-semibold leading-[57.6px] ': {},
-    //     },
-    //   }, ['responsive', 'hover']);
-    // },
-  ],
+  plugins: [],
 };

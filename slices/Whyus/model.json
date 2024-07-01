@@ -1,0 +1,57 @@
+{
+  "id": "whyus",
+  "type": "SharedSlice",
+  "name": "Whyus",
+  "description": "Whyus",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title1": {
+          "type": "Text",
+          "config": {
+            "label": "Title1",
+            "placeholder": ""
+          }
+        },
+        "title2": {
+          "type": "Text",
+          "config": {
+            "label": "Title2",
+            "placeholder": ""
+          }
+        },
+        "iconsData": {
+          "type": "Group",
+          "config": {
+            "label": "Icons Data",
+            "repeat": true,
+            "fields": {
+              "iconImage": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "iconTitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Icon Title",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

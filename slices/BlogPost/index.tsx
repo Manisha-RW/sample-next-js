@@ -2,7 +2,6 @@
 import {
   Content,
   ImageFieldImage,
-  KeyTextField,
   RichTextField,
 } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
@@ -32,7 +31,7 @@ export default function BlogPost({ slice, uid }: Props) {
     <div className="border-r border-b border-l border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
       <a href={`/blogs/${uid}`}>
         <PrismicNextImage
-          alt=""
+          alt={(slice?.primary?.blogImg?.alt || "") as ""}
           className="w-full mb-3"
           field={slice?.primary?.blogImg as ImageFieldImage}
         />

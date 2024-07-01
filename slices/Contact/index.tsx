@@ -4,46 +4,33 @@
  * @param {ContactProps}
  */
 import { ImageFieldImage } from "@prismicio/client";
-import { KeyTextField } from "@prismicio/client";
-import { RichTextField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import React from "react";
 
-// interface Props {
-//   slice: {
-//     primary: {
-//       image: ImageFieldImage[];
-//       title1: KeyTextField;
-//       title2: KeyTextField;
-//       description: RichTextField;
-//     };
-//   };
-// }
-
 export default function Contact({ slice }) {
   return (
     <div className="mt-[120px] vsm:mt-[50px]">
-      <section className="pb-10">
-        <div className="container lg:max-w-[1140px] lg:max-h-[589px] px-5 mx-auto flex flex-col lg:flex-row sm:flex-nowrap flex-wrap">
+      <section className="pb-10 mx-8">
+        <div className="lg:max-w-[1140px] lg:max-h-[589px] mx-auto flex flex-col lg:flex-row sm:flex-nowrap flex-wrap">
           {/* Left Picture */}
           <div className="lg:max-w-[589px] lg:max-h-[589px] w-full lg:w-auto">
             <PrismicNextImage
               className="rounded-lg w-full lg:w-[570px] lg:h-[570px] md:w-[740px] md:h-[300px] vsm:w-[400px] vsm:h-[250px] mx-auto"
-              alt=""
-              field={slice.primary.image as ImageFieldImage}
+              alt={slice?.primary?.image?.alt}
+              field={slice?.primary?.image as ImageFieldImage}
             />
           </div>
           {/* Right Form */}
           <div className="lg:w-[493px] lg:h-[516px] bg-white flex flex-col md:ml-auto w-full md:pt-8 mt-8 md:mt-0">
             <h3 className="font-raleway font-semibold text-3xl md:text-4xl lg:text-5xl leading-snug text-left mb-6">
-              {slice.primary.title1}{" "}
+              {slice?.primary?.title1}{" "}
               <span className="text-default-blue font-raleway">
-                {slice.primary.title2}
+                {slice?.primary?.title2}
               </span>
             </h3>
             <p className="leading-relaxed font-Raleway text-base font-normal mb-5 text-gray-600">
-              <PrismicRichText field={slice.primary.description} />
+              <PrismicRichText field={slice?.primary?.description} />
             </p>
 
             <div className="flex mb-4 gap-5">

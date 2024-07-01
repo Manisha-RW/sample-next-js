@@ -1,0 +1,239 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title1": {
+				"__TYPE__": "FieldContent",
+				"value": "charge",
+				"type": "Text"
+			},
+			"title2": {
+				"__TYPE__": "FieldContent",
+				"value": "point",
+				"type": "Text"
+			},
+			"cardData": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"cardTitle",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "plan",
+									"type": "Text"
+								}
+							],
+							[
+								"cardDesc",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Nulla excepteur elit exercitation magna qui anim est."
+											}
+										}
+									]
+								}
+							],
+							[
+								"moreDesc",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Veniam commodo non duis ut aute. Reprehenderit incididunt ad culpa elit commodo proident excepteur esse reprehenderit fugiat pariatur duis duis. Anim aliquip esse quis."
+											}
+										}
+									]
+								}
+							],
+							[
+								"cardImage",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+										"width": 4010,
+										"height": 4010
+									},
+									"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+									"width": 4010,
+									"height": 4010,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"cardVideo",
+								{
+									"embed_url": "https://twitter.com/timbenniks/status/1304146886832594944",
+									"author_name": "Tim Benniks",
+									"author_url": "https://twitter.com/timbenniks",
+									"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I’ve been diving deep on <a href=\"https://twitter.com/prismicio?ref_src=twsrc%5Etfw\">@prismicio</a> <a href=\"https://twitter.com/hashtag/slicemachine?src=hash&amp;ref_src=twsrc%5Etfw\">#slicemachine</a> today. I made all my own components and I used custom slices. It works like a charm with <a href=\"https://twitter.com/nuxt_js?ref_src=twsrc%5Etfw\">@nuxt_js</a>. Also\": I’m coding with this view. <a href=\"https://t.co/F0I8X9gz39\">pic.twitter.com/F0I8X9gz39</a></p>&mdash; Tim Benniks (@timbenniks) <a href=\"https://twitter.com/timbenniks/status/1304146886832594944?ref_src=twsrc%5Etfw\">September 10, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+									"type": "rich",
+									"cache_age": "3153600000",
+									"provider_name": "Twitter",
+									"provider_url": "http://www.twitter.com/",
+									"version": "1.0",
+									"all": {
+										"embed_url": "https://twitter.com/timbenniks/status/1304146886832594944",
+										"author_name": "Tim Benniks",
+										"author_url": "https://twitter.com/timbenniks",
+										"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I’ve been diving deep on <a href=\"https://twitter.com/prismicio?ref_src=twsrc%5Etfw\">@prismicio</a> <a href=\"https://twitter.com/hashtag/slicemachine?src=hash&amp;ref_src=twsrc%5Etfw\">#slicemachine</a> today. I made all my own components and I used custom slices. It works like a charm with <a href=\"https://twitter.com/nuxt_js?ref_src=twsrc%5Etfw\">@nuxt_js</a>. Also\": I’m coding with this view. <a href=\"https://t.co/F0I8X9gz39\">pic.twitter.com/F0I8X9gz39</a></p>&mdash; Tim Benniks (@timbenniks) <a href=\"https://twitter.com/timbenniks/status/1304146886832594944?ref_src=twsrc%5Etfw\">September 10, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+										"width": 550,
+										"height": null,
+										"type": "rich",
+										"cache_age": "3153600000",
+										"provider_name": "Twitter",
+										"provider_url": "http://www.twitter.com/",
+										"version": "1.0"
+									},
+									"__TYPE__": "EmbedContent"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "cardsWithoutText",
+		"primary": {
+			"title1": {
+				"__TYPE__": "FieldContent",
+				"value": "pound",
+				"type": "Text"
+			},
+			"title2": {
+				"__TYPE__": "FieldContent",
+				"value": "circle",
+				"type": "Text"
+			},
+			"cardData": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"cardImage",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f",
+										"width": 6597,
+										"height": 4398
+									},
+									"url": "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f",
+									"width": 6597,
+									"height": 4398,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"cardTitle",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "mix",
+									"type": "Text"
+								}
+							],
+							[
+								"cardDesc",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Sunt anim deserunt ullamco esse anim dolor."
+											}
+										}
+									]
+								}
+							],
+							[
+								"moreDesc",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Nulla occaecat officia Lorem aliqua veniam mollit. Veniam cillum cupidatat exercitation eu enim Lorem proident officia ut non dolor."
+											}
+										}
+									]
+								}
+							],
+							[
+								"imgwithouttext",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+										"width": 5616,
+										"height": 3744
+									},
+									"url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+									"width": 5616,
+									"height": 3744,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

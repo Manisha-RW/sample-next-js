@@ -12,11 +12,7 @@ export default async function sitemap({ params }) {
 
   const page = await client.getSingle("homepage");
 
-//   const blogs = await client.getByUID('blogPost', uid);
-
   const baseUrl = "https://oasis-ebon.vercel.app";
-
-//   console.log("DATA", blogs);
   return [
     {
       url: `${baseUrl}${page.url}`,
