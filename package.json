@@ -14,7 +14,6 @@
     "@prismicio/next": "^1.6.0",
     "@prismicio/react": "^2.8.0",
     "next": "^14.2.3",
-    "next-i18next": "^15.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-slick": "^0.30.2",

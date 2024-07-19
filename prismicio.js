@@ -27,8 +27,7 @@ const routes = [
   },
   {
   	type: "page",
-  	// path: "/:uid",
-    path: '/lang?/:uid',
+  	path: "/:uid",
   },
   {
     type: "blogPost",

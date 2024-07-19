@@ -1,33 +1,31 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
-import { createClient } from "../../../prismicio";
-import { components } from "../../../slices";
-type Params = { uid: string; lang: string,  };
+import { createClient } from "../../prismicio";
+import { components } from "../../slices";
+type Params = { uid: string };
 
-export default async function Page({ params: { lang, uid } }: { params: Params }) {
+export default async function Page({ params }: { params: Params }) {
   const client = createClient();
   const page = await client
-    .getByUID("page", uid, { lang: lang })
+    .getByUID("page", params.uid)
     .catch(() => notFound());
-    console.log("Heuuu", lang)
   return (
-    <>   
-      <SliceZone  slices={page?.data?.slices} components={components} />
+    <>
+      <SliceZone slices={page?.data?.slices} components={components} />
       {page?.data?.title}
-     
     </>
   );
 }
 
 export async function generateMetadata({
-  params: { lang, uid },
+  params,
 }: {
   params: Params;
 }): Promise<Metadata> {
   const client = createClient();
   const page = await client
-    .getByUID("page", uid, { lang: lang })
+    .getByUID("page", params?.uid)
     .catch(() => notFound());
 
   return {
@@ -38,7 +36,9 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const client = createClient();
-  const pages = await client.getAllByType("page", { lang: '*' });
+  const pages = await client.getAllByType("page");
 
-  return pages.map(({ uid, lang }) => ({ uid: uid, lang: lang }));
+  return pages.map((page) => {
+    return { uid: page?.uid };
+  });
 }

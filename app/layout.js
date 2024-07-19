@@ -7,8 +7,6 @@ import { createClient } from "../prismicio";
 import TopNavbar from "../components/Navbars/TopNavbar";
 
 async function RootLayout({ children }) {
-
-  
   const client = createClient();
   let navbar, footer, topNavbar;
 
@@ -20,7 +18,7 @@ async function RootLayout({ children }) {
     console.error("Error fetching navbar or footer:", error);
   }
   return (
-    <html>
+    <html lang="en">
       <body>
         {topNavbar && <TopNavbar topNavbar={topNavbar} />}
         {navbar && <Navbar navbar={navbar} />}
