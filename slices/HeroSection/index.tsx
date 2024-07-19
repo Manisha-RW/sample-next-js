@@ -8,7 +8,8 @@ import {
   isFilled,
 } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
-import Button from "../../components/Elements/Button";
+// import Button from "../../components/Elements/Button";
+import Link from "next/link";
 
 interface Props {
   slice: {
@@ -54,11 +55,11 @@ export default function HeroSection({ slice }: Props) {
         <p className="text-base font-Raleway lg:max-w-[613px] lg:max-h-[48px] py-5 leading-6 mb-8">
           {slice?.primary?.subHeading}
         </p>
-        <Button href={btnLinkUrl}>
+        <Link href={btnLinkUrl}>
           <PrismicNextLink field={slice?.primary?.BtnLink}>
             {slice?.primary?.BtnName}
           </PrismicNextLink>
-        </Button>
+        </Link>
       </div>
     </div>
   );
