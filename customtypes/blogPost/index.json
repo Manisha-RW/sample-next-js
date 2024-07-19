@@ -66,6 +66,7 @@
       }
     },
     "SEO & Metadata": {
+<<<<<<< HEAD
       "meta_title": {
         "config": {
           "label": "Meta Title",
@@ -73,6 +74,8 @@
         },
         "type": "Text"
       },
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
       "meta_description": {
         "config": {
           "label": "Meta Description",
@@ -91,6 +94,7 @@
         },
         "type": "Image"
       },
+<<<<<<< HEAD
       "canonicalLink": {
         "type": "Link",
         "config": {
@@ -120,6 +124,14 @@
           "constraint": {},
           "thumbnails": []
         }
+=======
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
       }
     }
   }

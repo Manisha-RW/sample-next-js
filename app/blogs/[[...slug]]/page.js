@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { createClient } from "../../../prismicio";
 import { notFound } from "next/navigation";
@@ -5,12 +6,26 @@ import BlogPost from "../../../slices/BlogPost";
 import Pagination from "../../../components/MoreInfo/Pagination";
 import { components } from "../../../slices";
 import { SliceZone } from "@prismicio/react";
+=======
+import React from 'react';
+import { createClient } from '../../../prismicio';
+import { notFound } from 'next/navigation';
+import BlogPost from '../../../slices/BlogPost';
+import Pagination from '../../../components/MoreInfo/Pagination';
+import Banner from "../../../components/Bnner/Banner"
+// import { components } from "../../../slices";
+// import { SliceZone } from "@prismicio/react";
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 
 const POSTS_PER_PAGE = 6;
 
 export default async function BlogsPage({ params }) {
   const slug = params.slug || [];
+<<<<<<< HEAD
   const currentPage = slug?.length > 1 ? parseInt(slug[1], 10) : 1;
+=======
+  const currentPage = slug.length > 1 ? parseInt(slug[1], 10) : 1;
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 
   // Check if currentPage is a valid number
   if (isNaN(currentPage)) {
@@ -18,6 +33,7 @@ export default async function BlogsPage({ params }) {
   }
 
   const client = createClient();
+<<<<<<< HEAD
   const pages = await client.getSingle("blog");
   try {
     const response = await client.getAllByType("blogPost", {
@@ -34,11 +50,30 @@ export default async function BlogsPage({ params }) {
     const totalPosts = response?.length;
     const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
 
+=======
+
+  try {
+    const response = await client.getAllByType('blogPost', {
+      orderings: {
+        field: 'document.first_publication_date',
+        direction: 'desc'
+      }
+    });
+    
+    if (!response || response.length === 0) {
+      return notFound();
+    }
+
+    const totalPosts = response.length;
+    const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+    
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
     if (currentPage > totalPages || currentPage < 1) {
       return notFound();
     }
 
     const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+<<<<<<< HEAD
     const paginatedPosts = response.slice(
       startIndex,
       startIndex + POSTS_PER_PAGE
@@ -100,3 +135,33 @@ export async function generateMetadata() {
     },
   };
 }
+=======
+    const paginatedPosts = response.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+    return (
+      <div>
+        {/* <SliceZone slices={page.data.slices} components={components} />; */}
+        <Banner/>
+      <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+        <h1 className='mb-3 pb-4 text-4xl flex justify-center font-bold text-default-blue  md:text-4xl'>Blog Posts</h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+          {paginatedPosts.map((blogPost) => (
+            <BlogPost key={blogPost.id} uid={blogPost.uid}  slice={{
+              primary: {
+                blogImg: blogPost.data.featuredImg,
+                blogTitle: blogPost.data.title,
+                blogDesc: blogPost.data.shortDesc
+              }
+            }} />
+          ))}
+        </div>
+        <Pagination currentPage={currentPage} totalPages={totalPages} />
+      </div>
+      </div>
+    );
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+    return notFound();
+  }
+}
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8

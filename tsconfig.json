@@ -27,7 +27,11 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
+<<<<<<< HEAD
 , "components/Navbars/Navbar.tsx", "app/pages/[uid]/page.js", "app/sitemap.js", "app/sitemap.js"  ],
+=======
+, "components/Navbars/Navbar.tsx", "app/pages/[uid]/page.js"  ],
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
   "exclude": [
     "node_modules"
   ]

@@ -4,6 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+<<<<<<< HEAD
 type BlogDocumentDataSlicesSlice = BannerSlice | BlogPostSlice;
 
 /**
@@ -109,6 +110,8 @@ interface BlogDocumentData {
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 type BlogPostDocumentDataSlicesSlice =
   | BrandsSlice
   | ImageContentWithColumnSlice;
@@ -182,6 +185,7 @@ interface BlogPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice> /**
+<<<<<<< HEAD
    * Meta Title field in *Blog Post*
    *
    * - **Field Type**: Text
@@ -193,6 +197,8 @@ interface BlogPostDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
    * Meta Description field in *Blog Post*
    *
    * - **Field Type**: Text
@@ -200,7 +206,11 @@ interface BlogPostDocumentData {
    * - **API ID Path**: blogPost.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
+<<<<<<< HEAD
    */
+=======
+   */;
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
   meta_description: prismic.KeyTextField;
 
   /**
@@ -215,6 +225,7 @@ interface BlogPostDocumentData {
   meta_image: prismic.ImageField<never>;
 
   /**
+<<<<<<< HEAD
    * Canonical Link field in *Blog Post*
    *
    * - **Field Type**: Link
@@ -257,6 +268,17 @@ interface BlogPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   og_image: prismic.ImageField<never>;
+=======
+   * Meta Title field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blogPost.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 }
 
 /**
@@ -436,6 +458,7 @@ interface HomepageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
+<<<<<<< HEAD
    * Meta Title field in *Homepage*
    *
    * - **Field Type**: Text
@@ -447,6 +470,8 @@ interface HomepageDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
    * Meta Description field in *Homepage*
    *
    * - **Field Type**: Text
@@ -454,7 +479,11 @@ interface HomepageDocumentData {
    * - **API ID Path**: homepage.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
+<<<<<<< HEAD
    */
+=======
+   */;
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
   meta_description: prismic.KeyTextField;
 
   /**
@@ -469,6 +498,7 @@ interface HomepageDocumentData {
   meta_image: prismic.ImageField<never>;
 
   /**
+<<<<<<< HEAD
    * Canonical Link field in *Homepage*
    *
    * - **Field Type**: Link
@@ -511,6 +541,17 @@ interface HomepageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   og_image: prismic.ImageField<never>;
+=======
+   * Meta Title field in *Homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: homepage.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 }
 
 /**
@@ -574,17 +615,22 @@ export type NavbarDocument<Lang extends string = string> =
     Lang
   >;
 
+<<<<<<< HEAD
 type PageDocumentDataSlicesSlice =
   | ImageContentWithColumnSlice
   | WhyusSlice
   | BannerSlice
   | CardsSlice;
+=======
+type PageDocumentDataSlicesSlice = BannerSlice | BlogPostSlice;
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 
 /**
  * Content for Page documents
  */
 interface PageDocumentData {
   /**
+<<<<<<< HEAD
    * Title field in *Page*
    *
    * - **Field Type**: Text
@@ -596,6 +642,8 @@ interface PageDocumentData {
   title: prismic.KeyTextField;
 
   /**
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
    * Slice Zone field in *Page*
    *
    * - **Field Type**: Slice Zone
@@ -708,7 +756,10 @@ export type TopNavbarDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+<<<<<<< HEAD
   | BlogDocument
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
   | BlogPostDocument
   | FooterDocument
   | HomepageDocument
@@ -742,6 +793,7 @@ export interface BannerSliceDefaultPrimaryButtonsItem {
 }
 
 /**
+<<<<<<< HEAD
  * Item in *Banner → Short Banner → Primary → Buttons*
  */
 export interface BannerSliceShortBannerPrimaryButtonsItem {
@@ -767,6 +819,8 @@ export interface BannerSliceShortBannerPrimaryButtonsItem {
 }
 
 /**
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
  * Primary content in *Banner → Default → Primary*
  */
 export interface BannerSliceDefaultPrimary {
@@ -825,6 +879,7 @@ export type BannerSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+<<<<<<< HEAD
  * Primary content in *Banner → Short Banner → Primary*
  */
 export interface BannerSliceShortBannerPrimary {
@@ -898,6 +953,11 @@ export type BannerSliceShortBanner = prismic.SharedSliceVariation<
  * Slice variation for *Banner*
  */
 type BannerSliceVariation = BannerSliceDefault | BannerSliceShortBanner;
+=======
+ * Slice variation for *Banner*
+ */
+type BannerSliceVariation = BannerSliceDefault;
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 
 /**
  * Banner Shared Slice
@@ -1063,6 +1123,7 @@ type BrandsSliceVariation = BrandsSliceDefault;
 export type BrandsSlice = prismic.SharedSlice<"brands", BrandsSliceVariation>;
 
 /**
+<<<<<<< HEAD
  * Item in *Cards → Default → Primary → Card Data*
  */
 export interface CardsSliceDefaultPrimaryCardDataItem {
@@ -1285,6 +1346,8 @@ type CardsSliceVariation = CardsSliceDefault | CardsSliceCardsWithoutText;
 export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
 
 /**
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
  * Item in *Clients → Default → Primary → Client Data*
  */
 export interface ClientsSliceDefaultPrimaryClientDataItem {
@@ -1732,6 +1795,7 @@ export type ImageContentWithColumnSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+<<<<<<< HEAD
  * Primary content in *ImageContentWithColumn → Image at Right Side → Primary*
  */
 export interface ImageContentWithColumnSliceImageAtRightSidePrimary {
@@ -1806,6 +1870,11 @@ export type ImageContentWithColumnSliceImageAtRightSide =
 type ImageContentWithColumnSliceVariation =
   | ImageContentWithColumnSliceDefault
   | ImageContentWithColumnSliceImageAtRightSide;
+=======
+ * Slice variation for *ImageContentWithColumn*
+ */
+type ImageContentWithColumnSliceVariation = ImageContentWithColumnSliceDefault;
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 
 /**
  * ImageContentWithColumn Shared Slice
@@ -2229,6 +2298,7 @@ export type StatisticsSlice = prismic.SharedSlice<
   StatisticsSliceVariation
 >;
 
+<<<<<<< HEAD
 /**
  * Item in *Whyus → Default → Primary → Icons Data*
  */
@@ -2318,6 +2388,8 @@ type WhyusSliceVariation = WhyusSliceDefault;
  */
 export type WhyusSlice = prismic.SharedSlice<"whyus", WhyusSliceVariation>;
 
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -2328,9 +2400,12 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+<<<<<<< HEAD
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
@@ -2354,11 +2429,16 @@ declare module "@prismicio/client" {
       BannerSlice,
       BannerSliceDefaultPrimaryButtonsItem,
       BannerSliceDefaultPrimary,
+<<<<<<< HEAD
       BannerSliceShortBannerPrimaryButtonsItem,
       BannerSliceShortBannerPrimary,
       BannerSliceVariation,
       BannerSliceDefault,
       BannerSliceShortBanner,
+=======
+      BannerSliceVariation,
+      BannerSliceDefault,
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
       BlogPostSlice,
       BlogPostSliceDefaultPrimary,
       BlogPostSliceVariation,
@@ -2368,6 +2448,7 @@ declare module "@prismicio/client" {
       BrandsSliceDefaultPrimary,
       BrandsSliceVariation,
       BrandsSliceDefault,
+<<<<<<< HEAD
       CardsSlice,
       CardsSliceDefaultPrimaryCardDataItem,
       CardsSliceDefaultPrimary,
@@ -2376,6 +2457,8 @@ declare module "@prismicio/client" {
       CardsSliceVariation,
       CardsSliceDefault,
       CardsSliceCardsWithoutText,
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
       ClientsSlice,
       ClientsSliceDefaultPrimaryClientDataItem,
       ClientsSliceDefaultPrimary,
@@ -2396,10 +2479,15 @@ declare module "@prismicio/client" {
       HeroSectionSliceDefault,
       ImageContentWithColumnSlice,
       ImageContentWithColumnSliceDefaultPrimary,
+<<<<<<< HEAD
       ImageContentWithColumnSliceImageAtRightSidePrimary,
       ImageContentWithColumnSliceVariation,
       ImageContentWithColumnSliceDefault,
       ImageContentWithColumnSliceImageAtRightSide,
+=======
+      ImageContentWithColumnSliceVariation,
+      ImageContentWithColumnSliceDefault,
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
       LinkSectionSlice,
       LinkSectionSliceDefaultPrimaryLinksItem,
       LinkSectionSliceDefaultPrimary,
@@ -2421,11 +2509,14 @@ declare module "@prismicio/client" {
       StatisticsSliceDefaultPrimary,
       StatisticsSliceVariation,
       StatisticsSliceDefault,
+<<<<<<< HEAD
       WhyusSlice,
       WhyusSliceDefaultPrimaryIconsDataItem,
       WhyusSliceDefaultPrimary,
       WhyusSliceVariation,
       WhyusSliceDefault,
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
     };
   }
 }

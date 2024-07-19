@@ -24,6 +24,7 @@ export default function Statistics({ slice }: Props) {
       <div className="absolute inset-x-0 bottom-0 lg:-bottom-16 max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <dl className="bg-white dark:bg-gray-800 rounded-lg shadow-kg grid grid-cols-2 sm:grid-cols-4">
+<<<<<<< HEAD
             {slice?.primary?.statistics?.map((item, index) => (
               <div key={index} className="flex flex-col p-4 sm:p-6 text-center">
                 <dd className="text-4xl leading-[57.6px]  text-5xl font-medium leading-none text-blue">
@@ -31,6 +32,15 @@ export default function Statistics({ slice }: Props) {
                 </dd>
                 <dt className="text-base text-gray-600 font-Raleway font-medium leading-6">
                   {item?.label}
+=======
+            {slice.primary.statistics.map((item, index) => (
+              <div key={index} className="flex flex-col p-4 sm:p-6 text-center">
+                <dd className="text-4xl leading-[57.6px]  text-5xl font-medium leading-none text-blue">
+                  {item.count}
+                </dd>
+                <dt className="text-base text-gray-600 font-Raleway font-medium leading-6">
+                  {item.label}
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
                 </dt>
               </div>
             ))}

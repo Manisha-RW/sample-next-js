@@ -12,6 +12,7 @@
         },
         "type": "UID"
       },
+<<<<<<< HEAD
       "title": {
         "type": "Text",
         "config": {
@@ -19,11 +20,14 @@
           "placeholder": ""
         }
       },
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+<<<<<<< HEAD
             "image_content_with_column": {
               "type": "SharedSlice"
             },
@@ -34,6 +38,12 @@
               "type": "SharedSlice"
             },
             "cards": {
+=======
+            "banner": {
+              "type": "SharedSlice"
+            },
+            "blog_post": {
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
               "type": "SharedSlice"
             }
           }

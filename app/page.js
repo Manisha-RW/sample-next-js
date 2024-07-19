@@ -1,4 +1,5 @@
 import { SliceZone } from "@prismicio/react";
+<<<<<<< HEAD
 import { createClient } from "../prismicio";
 import { components } from "../slices";
 
@@ -34,5 +35,31 @@ export async function generateMetadata() {
         page?.data?.og_description || page?.data?.meta_description || "",
       images: page?.data?.og_image.url || page?.data?.meta_image.url || "",
     },
+  };
+=======
+
+import { createClient } from "../prismicio";
+import { components } from "../slices";
+
+export default async function Page() {
+  const client = createClient();
+  const page = await client.getSingle("homepage");
+
+  return (
+    <>
+      <SliceZone slices={page.data.slices} components={components} />;
+    </>
+  )
+   
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
+}
+
+export async function generateMetadata() {
+  const client = createClient();
+  const page = await client.getSingle("homepage");
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
   };
 }

@@ -4,7 +4,15 @@
  * @param {ClientsProps}
  */
 "use client";
+<<<<<<< HEAD
 import { ImageFieldImage } from "@prismicio/client";
+=======
+import {
+  ImageFieldImage,
+  KeyTextField,
+  RichTextField,
+} from "@prismicio/client";
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -12,6 +20,25 @@ import "slick-carousel/slick/slick-theme.css";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 
+<<<<<<< HEAD
+=======
+// interface Props {
+//   slice: {
+//     primary: {
+//       clientData: Array<{
+//         image: ImageFieldImage[];
+//         name: KeyTextField;
+//         position: KeyTextField;
+//         description: RichTextField;
+//       }>;
+//       title1: KeyTextField;
+//       title2: KeyTextField;
+//       title3: KeyTextField;
+//     };
+//   };
+// }
+
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
 export default function Clients({ slice }) {
   var settings = {
     dots: true,
@@ -23,6 +50,7 @@ export default function Clients({ slice }) {
   return (
     <div className="mt-28 vsm:mt-[50px] flex flex-col items-center overflow-hidden">
       <h2 className="font-raleway font-semibold text-3xl md:text-4xl lg:text-5xl leading-snug text-left mb-6">
+<<<<<<< HEAD
         {slice?.primary?.title1}
         <span className="text-default-blue font-raleway">
           {slice?.primary?.title2}
@@ -45,6 +73,30 @@ export default function Clients({ slice }) {
                 </p>
                 <p className="font-normal text-gray-600 mt-4 dark:text-white">
                   {item?.position}
+=======
+        {slice.primary.title1}
+        <span className="text-default-blue font-raleway">
+          {slice.primary.title2}
+        </span>
+        {slice.primary.title3}
+      </h2>
+
+      <div className="client-slider-container shadow-kg w-full max-w-4xl mt-8">
+        <Slider {...settings} className="slick-slider">
+          {slice.primary.clientData.map((item, index) => (
+            <div key={index} className="flex justify-center">
+              <div className="w-full max-w-4xl h-auto md:h-[471px] rounded-lg p-8 text-center flex flex-col items-center">
+                <PrismicNextImage
+                  alt=""
+                  className="h-24 w-24 md:h-[102px] md:w-[102px] rounded-full"
+                  field={item.image as ImageFieldImage}
+                />
+                <p className="font-semibold text-xl md:text-2xl font-raleway text-project-blue mt-4">
+                  {item.name}
+                </p>
+                <p className="font-normal text-gray-600 mt-4 dark:text-white">
+                  {item.position}
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
                 </p>
                 <div className="flex items-center justify-center space-x-2 mt-4">
                   {Array.from({ length: 4 }).map((_, index) => (
@@ -68,7 +120,11 @@ export default function Clients({ slice }) {
                       alt="Inverted comma"
                     />
                     <p className="w-full font-normal text-base text-gray-600 dark:text-white">
+<<<<<<< HEAD
                       <PrismicRichText field={item?.description} />
+=======
+                      <PrismicRichText field={item.description} />
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
                     </p>
                   </div>
                 </div>

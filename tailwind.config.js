@@ -15,6 +15,16 @@ module.exports = {
       },
       screens: {
         'vsm': '300px' },
+<<<<<<< HEAD
+=======
+      fontFamily: {
+        // Raleway: ['Raleway', 'sans-serif'],
+        // raleway: ['Raleway'],
+        // 'Raleway': ["Raleway", 'sans-serif'],
+        // 'jakrata': ['Plus Jakarta Sans'],
+        // 'open': ["Open Sans, sans-serif"],
+      },
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
       fontWeight: {
         semibold: "600",
       },
@@ -33,5 +43,13 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // function({ addUtilities }) {
+    //   addUtilities({
+    //     '.heading': {
+    //       '@apply font-semibold leading-[57.6px] ': {},
+    //     },
+    //   }, ['responsive', 'hover']);
+    // },
+  ],
 };

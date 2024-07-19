@@ -54,6 +54,7 @@
         }
       },
       "items": {}
+<<<<<<< HEAD
     },
     {
       "id": "imageAtRightSide",
@@ -105,6 +106,8 @@
         }
       },
       "items": {}
+=======
+>>>>>>> 38647a988eccfd6c887cebf32713f0cf3770b6d8
     }
   ]
 }
