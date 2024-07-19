@@ -1,7 +1,38 @@
-import  React from 'react'
+import { SliceZone } from "@prismicio/react";
+import { createClient } from "../prismicio";
+import { components } from "../slices";
 
-export default function Home() {
+export default async function Page() {
+  const client = createClient();
+  const page = await client.getSingle("homepage");
   return (
-    <div><h1>Page</h1></div>
-  )
+    <>
+      <SliceZone slices={page.data.slices} components={components} />
+    </>
+  );
+}
+export async function generateMetadata() {
+  const baseUrl = "http://localhost:3000";
+  const client = createClient();
+  const page = await client.getSingle("homepage");
+
+  return {
+    alternates: {
+      canonical: page?.data?.canonicalLink?.url || `${baseUrl}${page.url}`,
+    },
+    title: page?.data?.meta_title || page?.og_title || "",
+    description: page?.data?.meta_description || page?.og_description || "",
+    openGraph: {
+      title: page?.data?.og_title || page?.meta_title || "",
+      description:
+        page?.data?.og_description || page?.data?.meta_description || "",
+      images: page?.data?.og_image.url || page?.data?.meta_image.url || "",
+    },
+    twitter: {
+      title: page?.data?.og_title || page?.data?.meta_title || "",
+      description:
+        page?.data?.og_description || page?.data?.meta_description || "",
+      images: page?.data?.og_image.url || page?.data?.meta_image.url || "",
+    },
+  };
 }

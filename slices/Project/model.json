@@ -1,0 +1,113 @@
+{
+  "id": "project",
+  "type": "SharedSlice",
+  "name": "Project",
+  "description": "Project",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title1": {
+          "type": "Text",
+          "config": {
+            "label": "Title1",
+            "placeholder": ""
+          }
+        },
+        "title2": {
+          "type": "Text",
+          "config": {
+            "label": "Title2",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "cardData": {
+          "type": "Group",
+          "config": {
+            "label": "Card Data",
+            "repeat": true,
+            "fields": {
+              "cardImage": {
+                "type": "Image",
+                "config": {
+                  "label": "CardImage",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "clientLabel": {
+                "type": "Text",
+                "config": {
+                  "label": "Client Label",
+                  "placeholder": ""
+                }
+              },
+              "clientName": {
+                "type": "Text",
+                "config": {
+                  "label": "Client Name",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "iconImages": {
+          "type": "Group",
+          "config": {
+            "label": "Icon Images",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "iconImg": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
